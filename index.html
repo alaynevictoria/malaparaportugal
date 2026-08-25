@@ -1,0 +1,2795 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Checklist de mudança para Vila Nova de Gaia: o que levar, o que garantir e o que comprar em euros.">
+<link rel="manifest" href="manifest.webmanifest" data-fixo>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<title>Mala pra Portugal</title>
+
+<style>
+  :root {
+    --bg1: #d9e6f5;
+    --bg2: #cfe0ef;
+    --bg1-rgb: 217, 230, 245;
+
+    --blob1: #9fc4ea;
+    --blob2: #c9b6e8;
+
+    --text: #17222d;
+    --muted: #5c6b79;
+    --text-rgb: 23, 34, 45;
+
+    --accent: #14528f;
+    --accent-rgb: 20, 82, 143;
+    --positivo: #4f6a12;
+    --positivo-rgb: 79, 106, 18;
+    --negativo: #a8203a;
+    --negativo-rgb: 168, 32, 58;
+
+    --glass: rgba(255, 255, 255, .42);
+    --glass-2: rgba(255, 255, 255, .62);
+    --linha: rgba(255, 255, 255, .70);
+    --sombra: rgba(23, 34, 45, .13);
+    --brilho: rgba(255, 255, 255, .80);
+
+    --serif: ui-serif, Georgia, "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    --op-blob: .48;
+    --op-blob3: .24;
+
+    --r: 20px;
+    --toque: 40px;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(165deg, var(--bg1) 0%, var(--bg2) 100%) fixed;
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- manchas ---------- */
+
+  .blobs { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+  .blobs i { position: absolute; display: block; border-radius: 50%; filter: blur(70px); opacity: var(--op-blob, .55); transition: opacity 1.4s ease; }
+  .blobs .b1 {
+    width: 62vw; height: 62vw; max-width: 520px; max-height: 520px;
+    top: -14vh; left: -18vw; background: var(--blob1);
+    animation: deriva1 34s ease-in-out infinite alternate;
+  }
+  .blobs .b2 {
+    width: 56vw; height: 56vw; max-width: 460px; max-height: 460px;
+    top: 42vh; right: -20vw; background: var(--blob2);
+    animation: deriva2 41s ease-in-out infinite alternate;
+  }
+  .blobs .b3 {
+    width: 48vw; height: 48vw; max-width: 400px; max-height: 400px;
+    bottom: -12vh; left: 24vw; background: var(--accent); opacity: var(--op-blob3, .28);
+    animation: deriva3 47s ease-in-out infinite alternate;
+  }
+  @keyframes deriva1 { to { transform: translate3d(10vw, 12vh, 0) scale(1.15); } }
+  @keyframes deriva2 { to { transform: translate3d(-12vw, -10vh, 0) scale(1.1); } }
+  @keyframes deriva3 { to { transform: translate3d(6vw, -14vh, 0) scale(1.2); } }
+
+  /* ---------- casca ---------- */
+
+  .app {
+    position: relative; z-index: 1;
+    max-width: 660px; margin: 0 auto;
+    padding:
+      calc(18px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right))
+      calc(64px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left));
+    display: flex; flex-direction: column; gap: 14px;
+  }
+
+  .glass {
+    background: var(--glass);
+    backdrop-filter: blur(22px) saturate(170%);
+    -webkit-backdrop-filter: blur(22px) saturate(170%);
+    border: 1px solid var(--linha);
+    box-shadow: 0 10px 34px var(--sombra), inset 0 1px 0 var(--brilho);
+    border-radius: var(--r);
+  }
+
+  .rotulo {
+    font-size: 10.5px; font-weight: 700;
+    letter-spacing: .16em; text-transform: uppercase;
+    color: var(--muted); margin: 0;
+  }
+
+  button { font-family: var(--sans); color: var(--text); cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 10px; }
+
+  .btn {
+    min-height: var(--toque);
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    padding: 8px 15px; border-radius: 999px;
+    background: var(--glass-2); border: 1px solid var(--linha);
+    font-size: 13.5px; font-weight: 600;
+    box-shadow: inset 0 1px 0 var(--brilho);
+    transition: transform .12s ease, background .18s ease;
+  }
+  .btn:active { transform: scale(.97); }
+  .btn.forte { background: var(--accent); border-color: var(--accent); color: var(--bg1); }
+
+  .icone {
+    inline-size: 36px; block-size: 36px;
+    display: inline-grid; place-content: center;
+    border-radius: 12px;
+    background: var(--glass-2); border: 1px solid var(--linha);
+    padding: 0; flex: 0 0 auto;
+    transition: transform .12s ease;
+  }
+  .icone:active { transform: scale(.93); }
+  .icone svg { width: 18px; height: 18px; fill: none; stroke: var(--muted); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .icone[aria-expanded="true"] svg { stroke: var(--accent); }
+
+  /* ---------- cartão de embarque ---------- */
+
+  .passe { padding: 16px 18px 0; overflow: hidden; }
+  .passe-topo { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+  .logo { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .logo .aviao { width: 27px; height: 27px; flex: 0 0 auto; }
+  .logo .aviao path { fill: var(--accent); }
+  .logo h1 {
+    font-family: var(--serif); font-weight: 400; font-size: 21px;
+    margin: 0; line-height: 1.1; letter-spacing: -.01em;
+  }
+  .logo h1 em { font-style: italic; color: var(--accent); }
+
+  .rota { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
+  .rota .ponta { display: grid; gap: 2px; min-width: 0; }
+  .rota .ponta.fim { text-align: right; justify-items: end; }
+  .rota .cod { font-family: var(--serif); font-size: 27px; line-height: 1; }
+  .rota .loc { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+  .trilha { position: relative; flex: 1; height: 26px; min-width: 60px; }
+  .trilha .linha { position: absolute; top: 50%; left: 2px; right: 2px; border-top: 2px dashed rgba(var(--text-rgb), .26); }
+  .trilha .pino { position: absolute; top: 50%; width: 6px; height: 6px; margin-top: -3px; border-radius: 50%; background: rgba(var(--text-rgb), .3); }
+  .trilha .pino.a { left: 0; }
+  .trilha .pino.b { right: 0; }
+  .trilha .voo { position: absolute; top: 50%; left: 8%; transform: translate(-50%, -50%); transition: left .7s cubic-bezier(.32,.72,.3,1); }
+  .trilha .voo svg { width: 23px; height: 23px; display: block; }
+  .trilha .voo path { fill: var(--accent); }
+
+  .contador { display: flex; align-items: baseline; gap: 13px; margin-top: 20px; }
+  .contador .n {
+    font-family: var(--serif); font-size: clamp(66px, 23vw, 104px);
+    line-height: .8; letter-spacing: -.045em; color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .contador .u { font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); line-height: 1.35; }
+  .data-voo { margin: 12px 0 0; font-size: 13px; color: var(--muted); }
+  .data-voo b { color: var(--text); font-weight: 700; }
+
+  .stub {
+    margin: 17px -18px 0; padding: 13px 18px 15px;
+    border-top: 2px dashed var(--linha);
+    background: var(--glass-2);
+    border-radius: 0 0 var(--r) var(--r);
+  }
+  .pront-topo { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+  .pront-num { font-size: 12.5px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .pront-barra { height: 7px; border-radius: 4px; background: rgba(var(--text-rgb), .14); overflow: hidden; margin-top: 8px; }
+  .pront-barra i {
+    display: block; height: 100%; width: 0; border-radius: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--positivo));
+    transition: width .5s ease;
+  }
+
+  /* ---------- foco agora ---------- */
+
+  .foco { padding: 15px 17px 16px; }
+  .foco ol { list-style: none; margin: 11px 0 0; padding: 0; display: grid; gap: 7px; }
+  .foco button {
+    width: 100%; display: flex; align-items: center; gap: 11px; text-align: left;
+    min-height: var(--toque); padding: 9px 13px; border-radius: 14px;
+    background: var(--glass-2); border: 1px solid var(--linha);
+    font-size: 14px; font-weight: 600; line-height: 1.3;
+    transition: transform .12s ease;
+  }
+  .foco button:active { transform: scale(.985); }
+  .foco .ord { font-family: var(--serif); font-size: 17px; color: var(--accent); min-width: 14px; }
+  .foco .seta { margin-left: auto; color: var(--muted); flex: 0 0 auto; }
+  .foco .ok { margin: 10px 0 0; font-size: 14px; color: var(--muted); }
+  .foco .ok b { color: var(--positivo); }
+
+  .item.pisca { border-radius: 12px; animation: pisca 1.8s ease; }
+  @keyframes pisca {
+    0%, 100% { background: transparent; }
+    18%, 62% { background: rgba(var(--accent-rgb), .15); }
+  }
+
+  /* ---------- painel de aparência ---------- */
+
+  #prefs { padding: 16px 18px 18px; }
+  #prefs[hidden], #manuais[hidden], #formAdd[hidden] { display: none; }
+  .prefs-sec + .prefs-sec { margin-top: 18px; }
+  .temas { display: grid; grid-template-columns: repeat(auto-fit, minmax(112px, 1fr)); gap: 8px; margin-top: 10px; }
+  .tema {
+    display: flex; align-items: center; gap: 9px;
+    min-height: var(--toque); padding: 7px 10px; border-radius: 13px;
+    background: var(--glass-2); border: 1px solid var(--linha);
+    font-size: 12.5px; font-weight: 600; text-align: left;
+  }
+  .tema[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .amostra {
+    flex: 0 0 auto; width: 26px; height: 26px; border-radius: 9px;
+    border: 1px solid var(--linha);
+    background: conic-gradient(from 200deg, var(--a1) 0 40%, var(--a2) 40% 72%, var(--a3) 72% 100%);
+  }
+  .linha-campo {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    min-height: var(--toque); margin-top: 8px; font-size: 14px;
+  }
+  input[type="color"] {
+    inline-size: 52px; block-size: 34px; padding: 0;
+    border: 1px solid var(--linha); border-radius: 10px;
+    background: var(--glass-2); cursor: pointer;
+  }
+  .switch { display: flex; align-items: center; gap: 10px; min-height: var(--toque); font-size: 14px; cursor: pointer; }
+  .switch input { inline-size: 20px; block-size: 20px; accent-color: var(--accent); cursor: pointer; }
+  .backup { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .aviso { margin: 9px 0 0; font-size: 12.5px; color: var(--muted); }
+
+  /* ---------- navegação ---------- */
+
+  .nav { position: sticky; top: 6px; z-index: 6; padding: 8px 8px 9px; background: var(--glass-2); }
+  .abas { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 6px; }
+  .aba[hidden] { display: none; }
+  .aba {
+    min-height: 56px; padding: 7px 4px 8px;
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    border-radius: 14px; border: 1px solid transparent; background: transparent;
+    font-size: 12px; font-weight: 700; color: var(--muted);
+    transition: background .18s ease, color .18s ease, border-color .18s ease;
+  }
+  .aba svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .aba .qt { font-size: 10px; font-weight: 700; letter-spacing: .06em; font-variant-numeric: tabular-nums; opacity: .78; }
+  .aba[aria-selected="true"] { background: var(--accent); color: var(--bg1); border-color: var(--accent); }
+  .aba[aria-selected="true"] .qt { opacity: .92; }
+
+  .filtros { display: flex; gap: 6px; margin-top: 8px; overflow-x: auto; scrollbar-width: none; padding: 1px 2px 2px; }
+  .filtros::-webkit-scrollbar { display: none; }
+  .filtros button {
+    flex: 0 0 auto; min-height: 34px; padding: 5px 13px; border-radius: 999px;
+    background: var(--glass-2); border: 1px solid var(--linha);
+    font-size: 12.5px; font-weight: 600; color: var(--muted); white-space: nowrap;
+  }
+  .filtros button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg1); }
+
+  /* ---------- cartões do modo ---------- */
+
+  .painel { display: grid; gap: 12px; }
+  .painel.tres { grid-template-columns: repeat(3, 1fr); }
+  .cartao { padding: 13px 12px 14px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .cartao.largo { flex-direction: row; align-items: center; gap: 14px; text-align: left; padding: 14px 16px; }
+  .cartao svg.fig { width: 62px; height: 62px; display: block; flex: 0 0 auto; }
+  .cartao.largo svg.fig { width: 58px; height: 58px; }
+  .cartao .traco { fill: none; stroke: var(--text); stroke-width: 3.4; stroke-linejoin: round; stroke-linecap: round; opacity: .82; }
+  .cartao .fino { fill: none; stroke: var(--text); stroke-width: 2.4; stroke-linecap: round; opacity: .5; }
+  .cartao .enche { fill: var(--accent); opacity: .38; transition: transform .55s cubic-bezier(.32,.72,.3,1); }
+  .cartao .onda { fill: var(--accent); opacity: .6; transition: transform .55s cubic-bezier(.32,.72,.3,1); }
+  .cartao.cheio .enche { fill: var(--positivo); opacity: .42; }
+  .cartao.cheio .onda { fill: var(--positivo); opacity: .65; }
+  .cartao .dados { flex: 1; min-width: 0; }
+  .cartao .titulo { font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+  .cartao.largo .titulo { margin-top: 0; }
+  .cartao .grande { font-family: var(--serif); font-size: 22px; line-height: 1.15; font-variant-numeric: tabular-nums; }
+  .cartao.largo .grande { font-size: 25px; }
+  .cartao .peq { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .cartao .barra { width: 100%; height: 5px; border-radius: 3px; background: rgba(var(--text-rgb), .12); overflow: hidden; margin-top: 9px; }
+  .cartao .barra i { display: block; height: 100%; background: var(--accent); border-radius: 3px; transition: width .45s ease; }
+  .cartao.cheio .barra i { background: var(--positivo); }
+  .cartao.excedeu .barra i { background: var(--negativo); }
+  .cartao.excedeu .grande { color: var(--negativo); }
+  .cartao.compras .enche, .cartao.compras .onda { fill: var(--negativo); }
+  .cartao.compras .barra i { background: var(--negativo); }
+  .cartao.compras.cheio .enche, .cartao.compras.cheio .onda { fill: var(--positivo); }
+  .cartao.compras.cheio .barra i { background: var(--positivo); }
+
+  /* ---------- explicação do modo ---------- */
+
+  .modo { padding: 13px 17px 15px; }
+  .modo p { margin: 6px 0 0; font-size: 14px; color: var(--muted); }
+  .modo p strong { color: var(--accent); }
+
+  /* ---------- grupos ---------- */
+
+  section.grupo { padding: 15px 13px 8px; }
+  .grupo-topo { display: flex; align-items: baseline; gap: 10px; }
+  .grupo-topo h2 { font-family: var(--serif); font-weight: 400; font-size: 23px; line-height: 1.15; margin: 0; letter-spacing: -.01em; }
+  .grupo-topo .cont { margin-left: auto; font-size: 11px; font-weight: 700; letter-spacing: .1em; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .grupo-nota { margin: 8px 0 0; font-size: 13.5px; color: var(--muted); }
+  .grupo-nota em { font-style: normal; font-weight: 700; color: var(--negativo); }
+
+  ul.itens { list-style: none; margin: 6px 0 0; padding: 0; }
+
+  .item {
+    display: grid; grid-template-columns: 46px 1fr; align-items: start;
+    padding: 5px 0; border-top: 1px solid rgba(var(--text-rgb), .08);
+  }
+  ul.itens > .item:first-child { border-top: none; }
+
+  .marca {
+    appearance: none;
+    inline-size: var(--toque); block-size: var(--toque); margin: 2px 0 0;
+    border: 2px solid rgba(var(--text-rgb), .26); border-radius: 13px;
+    background: var(--glass-2); cursor: pointer;
+    display: grid; place-content: center;
+    transition: background .16s ease, border-color .16s ease, transform .12s ease;
+  }
+  .marca::after {
+    content: ""; inline-size: 15px; block-size: 8px;
+    border-left: 3px solid var(--bg1); border-bottom: 3px solid var(--bg1);
+    transform: rotate(-45deg) scale(.4); opacity: 0;
+    transition: opacity .16s ease, transform .16s ease;
+  }
+  .marca:checked { background: var(--positivo); border-color: var(--positivo); }
+  .marca:checked::after { opacity: 1; transform: rotate(-45deg) scale(1); }
+  .marca:active { transform: scale(.92); }
+
+  .corpo { padding: 8px 0 6px 4px; }
+  .nome { font-size: 15px; line-height: 1.35; cursor: pointer; display: block; }
+  .nota { display: block; margin-top: 3px; font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+  .item.feito .txt { text-decoration: line-through; text-decoration-color: rgba(var(--text-rgb), .35); }
+  .item.feito .nome, .item.feito .nota { color: var(--muted); }
+
+  .etiquetas { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 8px; }
+  .et {
+    font-size: 9.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    padding: 4px 8px; border-radius: 7px;
+    background: rgba(var(--text-rgb), .07); color: var(--muted); white-space: nowrap;
+  }
+  .et.mala { background: rgba(var(--accent-rgb), .14); color: var(--accent); }
+  .et.preco { background: transparent; border: 1px solid rgba(var(--negativo-rgb), .4); color: var(--negativo); }
+
+  .compra {
+    min-height: 34px; min-inline-size: 34px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    padding: 5px 9px; border-radius: 999px;
+    border: 1px dashed rgba(var(--text-rgb), .28); background: transparent;
+    font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--muted); opacity: .55;
+    transition: background .16s ease, border-color .16s ease, color .16s ease, opacity .16s ease;
+  }
+  .compra:hover, .compra:focus-visible { opacity: 1; }
+  .compra .ponto { inline-size: 9px; block-size: 9px; border-radius: 50%; border: 2px solid currentColor; }
+  .compra[data-c="falta"], .compra[data-c="ok"] { opacity: 1; padding: 5px 11px 5px 9px; }
+  .compra[data-c="falta"] {
+    border-style: solid; border-color: rgba(var(--negativo-rgb), .5);
+    background: rgba(var(--negativo-rgb), .12); color: var(--negativo);
+  }
+  .compra[data-c="ok"] {
+    border-style: solid; border-color: rgba(var(--positivo-rgb), .5);
+    background: rgba(var(--positivo-rgb), .13); color: var(--positivo);
+  }
+  .compra[data-c="falta"] .ponto, .compra[data-c="ok"] .ponto { background: currentColor; border-color: currentColor; }
+
+  .apagar {
+    min-height: 34px; min-inline-size: 34px; border-radius: 999px;
+    border: 1px solid rgba(var(--text-rgb), .18); background: transparent;
+    color: var(--muted); font-size: 15px; line-height: 1; padding: 0 10px;
+  }
+
+  .et.preco { cursor: pointer; }
+  .et.preco:hover { border-color: var(--negativo); }
+  .et.gasto { background: rgba(var(--positivo-rgb), .16); color: var(--positivo); cursor: pointer; }
+  .et.definir { border: 1px dashed rgba(var(--text-rgb), .28); background: transparent; cursor: pointer; }
+
+  .editor {
+    display: grid; gap: 9px; margin-top: 10px;
+    padding: 12px 12px 13px; border-radius: 15px;
+    background: var(--glass-2); border: 1px solid var(--linha);
+  }
+  .editor[hidden] { display: none; }
+  .editor .campos { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+  .editor label { display: grid; gap: 4px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .editor input {
+    min-height: 38px; width: 100%; padding: 8px 11px; border-radius: 12px;
+    border: 1px solid var(--linha); background: var(--glass);
+    color: var(--text); font-family: var(--sans); font-size: 15px;
+    letter-spacing: normal; text-transform: none;
+  }
+  .editor .acoes { display: flex; gap: 7px; flex-wrap: wrap; }
+  .editor .mini, .anot .mini {
+    min-height: 36px; padding: 6px 14px; border-radius: 999px;
+    border: 1px solid var(--linha); background: var(--glass);
+    font-size: 12.5px; font-weight: 600;
+  }
+  .editor .mini.forte, .anot .mini.forte { background: var(--accent); border-color: var(--accent); color: var(--bg1); }
+  .anot label { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); display: block; }
+  .editor .dica { font-size: 11.5px; color: var(--muted); margin: 0; letter-spacing: normal; text-transform: none; font-weight: 400; }
+
+  /* ---------- orçamento ---------- */
+
+  .orcamento { padding: 15px 17px 16px; }
+  .orc-linhas { margin-top: 10px; display: grid; gap: 2px; }
+  .orc-linha {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    padding: 7px 0; border-top: 1px solid rgba(var(--text-rgb), .08);
+  }
+  .orc-linha:first-child { border-top: none; }
+  .orc-linha .rot2 { font-size: 12.5px; color: var(--muted); }
+  .orc-linha .val { font-family: var(--serif); font-size: 21px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .orc-linha.destaque .val { color: var(--accent); font-size: 27px; }
+  .orc-barra { height: 7px; border-radius: 4px; background: rgba(var(--text-rgb), .12); overflow: hidden; margin-top: 12px; display: flex; }
+  .orc-barra i { display: block; height: 100%; background: var(--accent); transition: width .45s ease; }
+  .orc-barra u { display: block; height: 100%; background: rgba(var(--negativo-rgb), .35); transition: width .45s ease; }
+  .veredito { margin: 11px 0 0; font-size: 13.5px; }
+  .veredito b { font-weight: 700; }
+  .veredito.abaixo b { color: var(--positivo); }
+  .veredito.acima b { color: var(--negativo); }
+  .veredito.dentro b { color: var(--accent); }
+
+  .item[hidden], section.grupo[hidden] { display: none; }
+  .vazio { padding: 26px 20px; text-align: center; color: var(--muted); font-size: 14px; margin: 0; }
+
+  /* ---------- adicionar ---------- */
+
+  .addbox { padding: 13px 14px 15px; }
+  #formAdd { display: grid; gap: 9px; margin-top: 11px; }
+  #formAdd label { display: grid; gap: 5px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  #formAdd input[type="text"], #formAdd select {
+    min-height: var(--toque); width: 100%;
+    padding: 9px 12px; border-radius: 13px;
+    border: 1px solid var(--linha); background: var(--glass-2);
+    color: var(--text); font-family: var(--sans); font-size: 15px; font-weight: 400;
+    letter-spacing: normal; text-transform: none;
+  }
+  #formAdd .dupla { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+  #formAdd .acoes { display: flex; gap: 8px; margin-top: 3px; }
+  #formAdd .campo[hidden] { display: none; }
+
+  /* ---------- rodapé ---------- */
+
+  footer { padding: 15px 18px 18px; font-size: 13px; color: var(--muted); }
+  footer p { margin: 0 0 8px; }
+  footer p:last-child { margin-bottom: 0; }
+  footer strong { color: var(--text); }
+  footer em { font-style: normal; font-weight: 700; color: var(--accent); }
+
+  @media (min-width: 560px) {
+    .cartao svg.fig { width: 68px; height: 68px; }
+  }
+
+  /* ---------- cartão de embarque: campos, hora, câmbio, código ---------- */
+
+  .campos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 15px; }
+  .campo { display: grid; gap: 2px; min-width: 0; }
+  .campo i { font-style: normal; font-size: 8.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .campo b {
+    font-family: var(--serif); font-weight: 400; font-size: 14.5px; letter-spacing: -.01em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+
+  .hora-gaia { margin: 13px 0 0; font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .hora-gaia b { color: var(--text); font-weight: 400; font-family: var(--serif); font-size: 14.5px; }
+
+  .cambio {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+    width: 100%; margin-top: 12px; padding: 8px 12px; min-height: var(--toque);
+    border-radius: 13px; text-align: left;
+    background: rgba(var(--accent-rgb), .09); border: 1px solid rgba(var(--accent-rgb), .22);
+  }
+  .cambio-par { display: flex; align-items: baseline; gap: 7px; min-width: 0; }
+  .cambio-taxa { font-family: var(--serif); font-size: 19px; color: var(--accent); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .cambio-seta { font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .cambio-seta.sobe { color: var(--negativo); }
+  .cambio-seta.desce { color: var(--positivo); }
+  .cambio-fonte { font-size: 9.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); text-align: right; }
+  .cambio-fonte.velha { color: var(--negativo); }
+
+  /* ---------- alerta dos últimos dias ---------- */
+
+  .alerta { padding: 14px 17px 16px; border-color: rgba(var(--negativo-rgb), .45); background: rgba(var(--negativo-rgb), .13); }
+  .alerta[hidden] { display: none; }
+  .alerta .rotulo { color: var(--negativo); }
+  .alerta h3 { margin: 7px 0 0; font-family: var(--serif); font-weight: 400; font-size: 21px; line-height: 1.15; color: var(--negativo); }
+  .alerta p { margin: 8px 0 0; font-size: 13.5px; }
+  .alerta ul { margin: 9px 0 0; padding: 0 0 0 17px; font-size: 13.5px; }
+  .alerta li { margin-top: 3px; }
+  .alerta.pisca-forte { animation: respira 2.8s ease-in-out infinite; }
+  @keyframes respira {
+    0%, 100% { box-shadow: 0 10px 34px var(--sombra), inset 0 1px 0 var(--brilho); }
+    50% { box-shadow: 0 10px 34px var(--sombra), inset 0 1px 0 var(--brilho), 0 0 0 5px rgba(var(--negativo-rgb), .16); }
+  }
+
+  /* ---------- selo de grupo completo ---------- */
+
+  section.grupo { position: relative; overflow: hidden; }
+  section.grupo.completo .grupo-topo, section.grupo.completo .grupo-nota { padding-right: 88px; }
+  .selo {
+    position: absolute; top: 12px; right: 12px; width: 80px; height: 80px;
+    border-radius: 50%; border: 2px dashed var(--positivo); color: var(--positivo);
+    display: grid; place-content: center; text-align: center; gap: 2px;
+    transform: rotate(-11deg); opacity: .52; pointer-events: none;
+    font-size: 8px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; line-height: 1.3;
+    animation: carimbar .55s cubic-bezier(.2, 1.5, .4, 1);
+  }
+  .selo b { display: block; font-family: var(--serif); font-size: 13px; font-weight: 400; letter-spacing: .02em; }
+  @keyframes carimbar {
+    0% { transform: rotate(-34deg) scale(2.6); opacity: 0; }
+    62% { opacity: .68; }
+    100% { transform: rotate(-11deg) scale(1); opacity: .52; }
+  }
+
+  /* ---------- conversão e anotação ---------- */
+
+  .et.brl { background: transparent; border: 1px dashed rgba(var(--text-rgb), .22); color: var(--muted); }
+  .et.anotado {
+    background: rgba(var(--accent-rgb), .12); color: var(--accent); cursor: pointer;
+    text-transform: none; letter-spacing: .01em; font-size: 11px; font-weight: 600;
+    max-width: 100%; overflow: hidden; text-overflow: ellipsis;
+  }
+  .et.anotar { border: 1px dashed rgba(var(--text-rgb), .28); background: transparent; cursor: pointer; }
+  .anot { display: grid; gap: 9px; margin-top: 10px; padding: 12px; border-radius: 15px; background: var(--glass-2); border: 1px solid var(--linha); }
+  .anot textarea {
+    min-height: 66px; padding: 9px 11px; border-radius: 12px;
+    border: 1px solid var(--linha); background: var(--glass);
+    color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.45; resize: vertical;
+  }
+  .anot .acoes { display: flex; gap: 7px; flex-wrap: wrap; }
+  .anot .dica { margin: 0; font-size: 11.5px; color: var(--muted); }
+
+  /* ---------- gasto por semana ---------- */
+
+  .semana { margin-top: 15px; }
+  .semana-barras { display: flex; align-items: flex-end; gap: 5px; height: 52px; margin-top: 10px; }
+  .semana-barras i { flex: 1; min-height: 2px; border-radius: 3px 3px 0 0; background: rgba(var(--accent-rgb), .5); }
+  .semana-barras i.pico { background: var(--accent); }
+  .semana-eixo { display: flex; gap: 5px; margin-top: 6px; }
+  .semana-eixo span { flex: 1; text-align: center; font-size: 8.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  /* ---------- modo de volta ---------- */
+
+  .volta-bts { display: flex; gap: 5px; }
+  .volta-bt {
+    min-height: 34px; padding: 5px 11px; border-radius: 999px;
+    border: 1px solid rgba(var(--text-rgb), .2); background: transparent;
+    font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+  }
+  .volta-bt[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg1); }
+  .volta-bt.fica[aria-pressed="true"] { background: var(--muted); border-color: var(--muted); }
+  .volta-bt.dar[aria-pressed="true"] { background: var(--positivo); border-color: var(--positivo); }
+  .et.pesar { border: 1px dashed rgba(var(--text-rgb), .28); background: transparent; cursor: pointer; }
+
+  /* ---------- ferramentas da navegação ---------- */
+
+  .ferramentas { display: flex; gap: 6px; margin-top: 7px; }
+  .btn.ferr { flex: 1; min-height: 38px; font-size: 12.5px; }
+  .btn.ferr svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- modo arrumação ---------- */
+
+  .arruma {
+    position: fixed; inset: 0; z-index: 40;
+    background: linear-gradient(165deg, var(--bg1) 0%, var(--bg2) 100%);
+    padding: calc(16px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right))
+             calc(20px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left));
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .arruma[hidden] { display: none; }
+  .arruma-topo { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+  .arruma-cont { margin: 5px 0 0; font-family: var(--serif); font-size: 33px; line-height: 1; font-variant-numeric: tabular-nums; }
+  .arruma-cont em { font-style: normal; font-size: 14px; font-family: var(--sans); color: var(--muted); letter-spacing: .04em; }
+  .arruma-abas { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+  .arruma-abas::-webkit-scrollbar { display: none; }
+  .arruma-abas button {
+    flex: 0 0 auto; min-height: 36px; padding: 6px 14px; border-radius: 999px;
+    border: 1px solid var(--linha); background: var(--glass-2);
+    font-size: 12.5px; font-weight: 700; color: var(--muted); white-space: nowrap;
+  }
+  .arruma-abas button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg1); }
+  .arruma-lista { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .arruma-lista button {
+    width: 100%; display: flex; align-items: center; gap: 14px; text-align: left;
+    padding: 16px 6px; border: 0; border-bottom: 1px solid rgba(var(--text-rgb), .1);
+    background: transparent; font-family: var(--serif); font-size: 21px; line-height: 1.25;
+    transition: opacity .28s ease, transform .28s ease;
+  }
+  .arruma-lista button .quad { flex: 0 0 auto; width: 27px; height: 27px; border-radius: 9px; border: 2px solid rgba(var(--text-rgb), .3); }
+  .arruma-lista button .onde {
+    margin-left: auto; flex: 0 0 auto; font-family: var(--sans);
+    font-size: 9.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+  }
+  .arruma-lista button.indo { opacity: 0; transform: translateX(34px); }
+  .arruma-fim { padding: 46px 12px; text-align: center; color: var(--muted); font-size: 15px; }
+  .arruma-fim b { display: block; font-family: var(--serif); font-size: 25px; color: var(--positivo); font-weight: 400; margin-bottom: 8px; }
+
+  @media (max-width: 400px) {
+    .aba { font-size: 11px; }
+    .campos { gap: 6px; }
+    .campo b { font-size: 13px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+
+<div class="blobs" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+
+<div class="app">
+
+  <header class="glass passe">
+    <div class="passe-topo">
+      <div class="logo">
+        <svg class="aviao" viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(-40 12 12)"><path d="M12 1.8C13.1 1.8 14 3.3 14 5.1V8.6L21.8 13.2V15.5L14 13.2V17.5L16.6 19.4V21.2L12 19.9L7.4 21.2V19.4L10 17.5V13.2L2.2 15.5V13.2L10 8.6V5.1C10 3.3 10.9 1.8 12 1.8Z"/></g></svg>
+        <h1>Mala pra <em>Portugal</em></h1>
+      </div>
+      <button class="icone" id="abrePrefs" aria-expanded="false" aria-controls="prefs" aria-label="Aparência" title="Aparência">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.1 14.6a1.6 1.6 0 0 0 .3 1.8l.1.1a1.9 1.9 0 1 1-2.7 2.7l-.1-.1a1.6 1.6 0 0 0-2.7 1.1v.3a1.9 1.9 0 1 1-3.8 0v-.2a1.6 1.6 0 0 0-2.7-1.2l-.1.1a1.9 1.9 0 1 1-2.7-2.7l.1-.1a1.6 1.6 0 0 0-1.1-2.7h-.3a1.9 1.9 0 1 1 0-3.8h.2A1.6 1.6 0 0 0 4.8 7l-.1-.1A1.9 1.9 0 1 1 7.4 4.2l.1.1a1.6 1.6 0 0 0 2.7-1.1V3a1.9 1.9 0 1 1 3.8 0v.2a1.6 1.6 0 0 0 2.7 1.1l.1-.1a1.9 1.9 0 1 1 2.7 2.7l-.1.1a1.6 1.6 0 0 0 1.1 2.7h.3a1.9 1.9 0 1 1 0 3.8h-.2a1.6 1.6 0 0 0-1.5 1.1z"/></svg>
+      </button>
+    </div>
+
+    <div class="rota" aria-hidden="true">
+      <span class="ponta"><span class="cod">BR</span><span class="loc">Brasil</span></span>
+      <span class="trilha">
+        <span class="linha"></span><span class="pino a"></span><span class="pino b"></span>
+        <span class="voo" id="voo"><svg viewBox="0 0 24 24"><g transform="rotate(-40 12 12)"><path d="M12 1.8C13.1 1.8 14 3.3 14 5.1V8.6L21.8 13.2V15.5L14 13.2V17.5L16.6 19.4V21.2L12 19.9L7.4 21.2V19.4L10 17.5V13.2L2.2 15.5V13.2L10 8.6V5.1C10 3.3 10.9 1.8 12 1.8Z"/></g></svg></span>
+      </span>
+      <span class="ponta fim"><span class="cod">PT</span><span class="loc">V. N. de Gaia</span></span>
+    </div>
+
+    <div class="contador">
+      <span class="n" id="dias">—</span>
+      <span class="u">dias<br>até o voo</span>
+    </div>
+    <p class="data-voo"><b>10 de setembro de 2026</b> · seis meses em Vila Nova de Gaia, do outro lado do Douro</p>
+
+    <div class="campos" aria-hidden="true">
+      <span class="campo"><i>Passageira</i><b>Alayne</b></span>
+      <span class="campo"><i>Voo</i><b>GRU · OPO</b></span>
+      <span class="campo"><i>Embarque</i><b>10 SET 26</b></span>
+      <span class="campo"><i>Estadia</i><b>6 meses</b></span>
+    </div>
+
+    <p class="hora-gaia" id="horaGaia"></p>
+
+    <div class="stub">
+      <div class="pront-topo">
+        <span class="rotulo">Prontidão</span>
+        <span class="pront-num" id="prontNum">0 de 0</span>
+      </div>
+      <div class="pront-barra"><i id="prontBar"></i></div>
+
+      <button class="cambio" type="button" id="cambio" title="Tocar para buscar a cotação de novo">
+        <span class="cambio-par">
+          <span class="cambio-taxa" id="cambioTaxa">€1 = R$&nbsp;—</span>
+          <span class="cambio-seta" id="cambioSeta" aria-hidden="true"></span>
+        </span>
+        <span class="cambio-fonte" id="cambioFonte">buscando a cotação…</span>
+      </button>
+
+    </div>
+  </header>
+
+  <div class="glass alerta" id="alerta" hidden></div>
+
+
+  <section class="glass" id="prefs" hidden aria-label="Aparência">
+    <div class="prefs-sec">
+      <p class="rotulo">Temas</p>
+      <div class="temas" id="temas"></div>
+    </div>
+
+    <div class="prefs-sec">
+      <p class="rotulo">Fundo livre</p>
+      <label class="linha-campo" for="corFundo"><span>Escolher a cor de fundo</span><input type="color" id="corFundo"></label>
+      <p class="aviso">Texto, destaque, verde e vermelho são derivados do fundo por matiz — e a luminosidade de cada um é empurrada até ficar legível sobre ele.</p>
+    </div>
+
+    <div class="prefs-sec">
+      <label class="switch" for="manual"><input type="checkbox" id="manual"><span>Escolher as cores da frente na mão</span></label>
+      <div id="manuais" hidden>
+        <label class="linha-campo" for="corTexto"><span>Texto</span><input type="color" id="corTexto"></label>
+        <label class="linha-campo" for="corAccent"><span>Destaque</span><input type="color" id="corAccent"></label>
+        <label class="linha-campo" for="corPos"><span>Sinal de feito</span><input type="color" id="corPos"></label>
+        <p class="aviso">O sinal de “falta” é derivado do sinal de feito, girando o matiz para o lado oposto.</p>
+      </div>
+    </div>
+
+    <div class="prefs-sec">
+      <p class="rotulo">Modo de volta</p>
+      <label class="switch" for="ligaVolta"><input type="checkbox" id="ligaVolta"><span>Mostrar a aba <em style="font-style:normal;font-weight:700">Volta</em> agora</span></label>
+      <p class="aviso">Ela aparece sozinha a partir de 1º de fevereiro de 2027. Ligue aqui se quiser ver antes.</p>
+    </div>
+
+    <div class="prefs-sec">
+      <p class="rotulo">Backup</p>
+      <div class="backup">
+        <button class="btn" id="exportar" type="button">Exportar</button>
+        <button class="btn" id="importar" type="button">Importar</button>
+      </div>
+      <p class="aviso" id="avisoBackup">O arquivo leva as marcações, as compras, os itens que você adicionou e as cores escolhidas.</p>
+    </div>
+  </section>
+
+  <section class="glass foco" id="foco" aria-label="Foco agora"></section>
+
+  <nav class="glass nav" aria-label="Modos">
+    <div class="abas" id="abas" role="tablist">
+      <button class="aba" role="tab" type="button" data-t="garantir" aria-selected="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v5.6c0 4.3 3 8.3 7.5 9.4 4.5-1.1 7.5-5.1 7.5-9.4V6z"/><path d="M9 12.2l2.1 2.1 4.3-4.3"/></svg>
+        <span>Garantir</span><span class="qt" data-qt="garantir"></span>
+      </button>
+      <button class="aba" role="tab" type="button" data-t="levar" aria-selected="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7.5" width="18" height="12.5" rx="2.4"/><path d="M8.5 7.5V5.4A1.4 1.4 0 0 1 9.9 4h4.2a1.4 1.4 0 0 1 1.4 1.4v2.1"/><path d="M8.6 7.5v12.5M15.4 7.5v12.5"/></svg>
+        <span>Levar</span><span class="qt" data-qt="levar"></span>
+      </button>
+      <button class="aba" role="tab" type="button" data-t="comprar" aria-selected="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.6 8h14.8l-1.3 11.1a2 2 0 0 1-2 1.8H7.9a2 2 0 0 1-2-1.8z"/><path d="M8.6 8V6.5a3.4 3.4 0 0 1 6.8 0V8"/></svg>
+        <span>Comprar</span><span class="qt" data-qt="comprar"></span>
+      </button>
+      <button class="aba" role="tab" type="button" data-t="volta" aria-selected="false" id="abaVolta" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 5.5 3.8 11.2a1.1 1.1 0 0 0 0 1.6l5.7 5.7"/><path d="M4 12h11a5 5 0 0 1 5 5v2"/></svg>
+        <span>Volta</span><span class="qt" data-qt="volta"></span>
+      </button>
+    </div>
+    <div class="filtros" id="filtros"></div>
+    <div class="ferramentas">
+      <button class="btn ferr" type="button" id="abreArruma">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7.5" width="18" height="12.5" rx="2.4"/><path d="M8.5 7.5V5.4A1.4 1.4 0 0 1 9.9 4h4.2a1.4 1.4 0 0 1 1.4 1.4v2.1"/></svg>
+        Modo arrumação
+      </button>
+    </div>
+  </nav>
+
+  <div class="painel" id="painel"></div>
+
+  <div class="glass modo" id="modo"></div>
+
+  <main id="main"></main>
+
+  <div class="glass addbox">
+    <button class="btn" id="abreAdd" type="button" aria-expanded="false" aria-controls="formAdd">+&nbsp; Adicionar item</button>
+    <form id="formAdd" hidden>
+      <label>Item<input type="text" id="addNome" maxlength="90" placeholder="Ex.: carregador reserva"></label>
+      <label>Detalhe (opcional)<input type="text" id="addNota" maxlength="140" placeholder="Ex.: o do quarto, não o da mesa"></label>
+      <label>Onde entra
+        <select id="addOnde">
+          <option value="doc">Documento — garantir que tenho</option>
+          <option value="mochila">Mochila</option>
+          <option value="b10">Mala 10 kg</option>
+          <option value="b23">Mala 23 kg</option>
+          <option value="la">Comprar lá — em Portugal</option>
+        </select>
+      </label>
+      <div class="dupla">
+        <label class="campo" id="campoPeso">Peso aprox.<input type="text" id="addPeso" inputmode="decimal" placeholder="0,3"></label>
+        <label class="campo" id="campoPreco">Preço estimado<input type="text" id="addPreco" placeholder="€20–40"></label>
+      </div>
+      <div class="acoes">
+        <button class="btn forte" type="submit">Adicionar</button>
+        <button class="btn" type="button" id="cancelaAdd">Cancelar</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="arruma" id="arruma" hidden>
+    <div class="arruma-topo">
+      <div>
+        <p class="rotulo">Modo arrumação</p>
+        <p class="arruma-cont" id="arrumaCont"></p>
+      </div>
+      <button class="icone" type="button" id="fechaArruma" aria-label="Sair do modo arrumação">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="arruma-abas" id="arrumaAbas"></div>
+    <div class="arruma-lista" id="arrumaLista"></div>
+  </div>
+
+  <footer class="glass">
+    <p><strong>Três modos, uma lista.</strong> <em>Garantir</em> é o que precisa existir e estar com você — documentos e burocracia. <em>Levar</em> é o que entra nas malas. <em>Comprar</em> é o que você resolve em euros, já em Portugal.</p>
+    <p><strong>Dois sinais por item.</strong> O quadrado marca o que já está resolvido ou dentro da mala. A pilulinha ao lado é só de compra: um toque para “falta comprar”, outro para “comprado”.</p>
+    <p><strong>Preço e gasto real.</strong> Toque na estimativa de qualquer item pra corrigi-la, e no “paguei” pra ajustar o valor real. O quadro de orçamento compara o que você já gastou com o que estava previsto para esses mesmos itens.</p>
+    <p><strong>A folga é de propósito.</strong> A mala de 23&nbsp;kg fecha em torno de 12&nbsp;kg — é o espaço do casaco e das botas que voltam com você em março.</p>
+    <p><strong>Cotação e conversão.</strong> O euro é buscado sozinho ao abrir o app e todo preço de compra aparece também em reais. Um toque no valor força uma busca nova.</p>
+    <p><strong>Modo arrumação.</strong> No dia de fechar a mala, o botão acima da lista abre a tela cheia: só o que falta, letra grande, um item por linha.</p>
+    <p><strong>Anotação em qualquer linha.</strong> O <em>✎ nota</em> guarda número de processo, marca que você viu na loja, nome do senhorio. Entra no backup.</p>
+    <p><strong>Alerta dos últimos dias.</strong> Faltando sete dias para o voo, o que ainda tiver prazo em aberto sobe para o topo da tela.</p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* =========================================================
+     dados — [nome, nota, onde, kg, preço]
+     ========================================================= */
+
+  var GRUPOS = [
+    {
+      id: "doc", titulo: "Documentos e dinheiro",
+      nota: "Tudo isto viaja na mochila, com você, nunca na mala despachada. Seis meses passa dos 90 dias de turista — <em>sem o visto certo a estadia é irregular</em>, então confirme o seu antes de qualquer outra coisa.",
+      itens: [
+        ["Passaporte válido por pelo menos 6 meses depois do retorno", "Se vencer antes de março de 2027, renove agora — não dá tempo depois.", "mochila", .06],
+        ["Visto de residência (D4 estudante, ou o que se aplicar a você)", "Turista brasileiro só pode ficar 90 dias. Seis meses exige visto tirado no consulado ainda no Brasil.", "mochila", 0],
+        ["Carta de aceitação da universidade ou escola", "Impressa. A fronteira pode pedir.", "mochila", .02],
+        ["Contrato do apartamento ou reserva dos primeiros dias", "É também o seu comprovativo de morada — guarde uma cópia à parte.", "mochila", .02],
+        ["Seguro de saúde internacional", "Cobertura mínima de €30.000 é o padrão exigido para visto e entrada.", "mochila", .02],
+        ["Passagem de volta ou comprovativo de saída", "", "mochila", .01],
+        ["Comprovativo de meios de subsistência", "Extrato bancário dos últimos 3 meses, impresso.", "mochila", .02],
+        ["Certidão de nascimento apostilada (Haia)", "Pedem pra tudo: NIF, contrato, matrícula. Apostile no Brasil — de lá é uma novela.", "mochila", .03],
+        ["Histórico escolar e diploma apostilados", "Mesmo motivo. Leve também em PDF.", "mochila", .06],
+        ["Carteira de vacinação", "", "mochila", .02],
+        ["CNH + Permissão Internacional para Dirigir", "Só se pretende dirigir ou alugar carro. A PID sai no Detran e leva alguns dias.", "mochila", .04],
+        ["Dois cartões internacionais de bancos diferentes", "Um Wise ou Nomad para o dia a dia e um crédito de reserva. Se um bloquear, você não fica a pé.", "mochila", .02],
+        ["€300 a €400 em espécie", "Primeiros dias, caução, algum lugar que só aceita dinheiro. Notas pequenas.", "mochila", .05],
+        ["Pasta plástica com cópias impressas de tudo", "", "mochila", .15],
+        ["Cópias digitais no Drive e uma cópia offline no celular", "Se perder a bolsa, é isto que te salva.", "mochila", 0],
+        ["4 fotos tipo passe", "Pedem para documentos lá; fazer no Brasil sai muito mais barato.", "mochila", .01]
+      ]
+    },
+    {
+      id: "burocracia", titulo: "Primeira semana — burocracia",
+      nota: "Não é mala, mas é o que trava a vida de quem chega. Nesta ordem, porque cada um depende do anterior.",
+      itens: [
+        ["Contrato de arrendamento em seu nome e registado nas Finanças", "É o comprovativo de morada que destrava tudo o resto. Exija o registo — senhorio que enrola é bandeira vermelha.", "la", 0, "—"],
+        ["Tirar o NIF nas Finanças", "Número de contribuinte. Sem ele você não abre conta, não assina contrato de luz, não faz quase nada. É grátis — e a repartição de Gaia costuma ter fila menor que as do Porto.", "la", 0, "grátis"],
+        ["Abrir conta bancária portuguesa", "Pede NIF e comprovativo de morada. Millennium, CGD e Novo Banco atendem estudante.", "la", 0, "—"],
+        ["Colocar água, luz e internet no seu nome", "Ou confirmar que estão incluídas no aluguel. No inverno, com aquecedor ligado, a conta de luz assusta.", "la", 0, "—"],
+        ["Registar-se no centro de saúde do SNS", "Dá direito a médico de família. Leve NIF, passaporte e comprovativo de morada.", "la", 0, "—"],
+        ["Agendar o processo na AIMA", "Se o seu visto exige conversão em autorização de residência. Agende cedo — a fila é longa.", "la", 0, "—"],
+        ["Fazer o NISS", "Número de segurança social, só se for trabalhar ou estagiar lá.", "la", 0, "—"]
+      ]
+    },
+    {
+      id: "tec", titulo: "Eletrônicos e home office",
+      nota: "Portugal é 230&nbsp;V com tomada tipo C/F. Aparelho bivolt (notebook, celular) só precisa de adaptador de pino. <em>Aparelho de aquecer — secador, chapinha, ferro — não leve</em>: compre lá, é barato e evita queimar.",
+      itens: [
+        ["Notebook + carregador", "", "mochila", 1.9],
+        ["Celular + cabo e carregador", "", "mochila", .25],
+        ["Fone de ouvido", "Com cancelamento de ruído, se tiver — voo de 9h e apartamento em rua movimentada.", "mochila", .25],
+        ["Mouse sem fio", "", "mochila", .1],
+        ["Powerbank", "Por norma da aviação tem que ir na bagagem de mão, nunca na despachada.", "mochila", .3],
+        ["2 adaptadores de tomada Brasil → Europa (tipo C/F)", "Compre no Brasil, custa uma fração. Dois porque um sempre some.", "mochila", .1],
+        ["Régua / filtro de linha com plugue brasileiro", "O melhor truque de mala: 1 adaptador vira 4 tomadas brasileiras na parede portuguesa.", "b10", .35],
+        ["HD externo ou pendrive com backup", "", "mochila", .15],
+        ["Cabo HDMI", "", "b10", .1],
+        ["Suporte dobrável de notebook", "Seis meses de home office em mesa improvisada cobram caro do pescoço.", "b10", .4],
+        ["Monitor externo", "Worten, MediaMarkt ou em segunda mão no OLX. Vale muito pra quem trabalha 6 meses.", "la", 0, "€70–120"],
+        ["Teclado e mouse de mesa", "", "la", 0, "€25–40"],
+        ["Cadeira de escritório decente", "Morando sozinha, é você e essa cadeira 8 horas por dia. Segunda mão no OLX resolve por bem menos.", "la", 0, "€40–120"],
+        ["Secador de cabelo", "230&nbsp;V. Comprar lá é mais barato que o risco de queimar o seu.", "la", 0, "€15–25"],
+        ["Chapinha ou modelador", "Mesma coisa. Não vale o peso nem o risco.", "la", 0, "€20–35"]
+      ]
+    },
+    {
+      id: "saude", titulo: "Saúde e remédios",
+      nota: "Em Portugal quase tudo além de paracetamol e ibuprofeno exige receita, e vários remédios brasileiros simplesmente não existem lá. <em>Este é o grupo que mais justifica peso na mala.</em>",
+      itens: [
+        ["Remédios de uso contínuo para os 6 meses inteiros", "Na embalagem original, com a bula. Nunca na mala despachada.", "mochila", .45],
+        ["Receita médica em português e inglês, com nome genérico", "Serve pra alfândega e pra farmácia de lá achar o equivalente português.", "mochila", .02],
+        ["Dipirona (Novalgina, Anador)", "Não existe em Portugal — a substância foi retirada do mercado europeu. Se é o seu remédio de dor de cabeça, leve o seu.", "mochila", .06],
+        ["Analgésico e anti-inflamatório de confiança", "Ibuprofeno e paracetamol se acham fácil; o resto pede receita.", "mochila", .1],
+        ["Antialérgico", "", "mochila", .05],
+        ["Remédio de estômago (Buscopan, antiácido)", "", "mochila", .05],
+        ["Anticoncepcional para os 6 meses", "A marca brasileira pode não existir lá, e trocar de marca no meio não é ideal.", "mochila", .1],
+        ["Óculos de grau reserva + receita atualizada", "Óptica em Portugal é cara. Um par reserva vale muito mais que o peso dele.", "b10", .12],
+        ["Lentes de contato e solução para os primeiros meses", "", "b10", .25],
+        ["Curativos, antisséptico e o kit básico", "Morando sozinha, tenha o seu — farmácia fecha cedo e domingo.", "b23", .2],
+        ["Vitamina D", "O inverno do norte de Portugal tem pouquíssimo sol e é normal a vitamina cair. Farmácia e supermercado vendem barato.", "la", 0, "€8–12"]
+      ]
+    },
+    {
+      id: "roupa", titulo: "Roupa — as camadas de dentro",
+      nota: "O segredo do inverno atlântico não é uma peça grossa, são várias finas. Estas são as de dentro, que você usa o ano todo — inclusive nos primeiros dias de calor. <em>A camada externa você compra lá.</em>",
+      itens: [
+        ["6 camisetas básicas", "", "b23", 1.2],
+        ["3 regatas ou blusas leves", "Setembro em Gaia ainda é praia. Março também esquenta.", "b23", .4],
+        ["4 blusas de manga longa / gola alta", "A peça mais útil do inverno português. Leve na de mão junto com os moletons.", "b10", 1.2],
+        ["2 camisas de manga longa", "", "b23", .6],
+        ["3 moletons ou suéteres", "Vão na mala de mão: é o que você veste no avião e nos primeiros dias, se a despachada atrasar.", "b10", 1.8],
+        ["2 calças jeans", "", "b23", 1.4],
+        ["2 calças leves ou de alfaiataria", "Uma delas serve para aula, entrevista e jantar.", "b23", .8],
+        ["1 calça de moletom pro home office", "", "b23", .5],
+        ["1 short + 1 saia ou vestido leve", "Setembro e março pedem.", "b23", .4],
+        ["1 look mais arrumado", "Apresentação, jantar, aniversário. Um só resolve.", "b10", .6],
+        ["2 pijamas, sendo um de inverno", "Apartamento português é frio por dentro. Pijama fino não dá conta em janeiro.", "b23", .7],
+        ["15 pares de roupa íntima", "Mais barato no Brasil e ocupa quase nada.", "b23", .6],
+        ["12 pares de meia comum", "", "b23", .45],
+        ["2 conjuntos de roupa de academia", "", "b10", .6],
+        ["Biquíni ou maiô", "As praias de Gaia — Canidelo, Madalena, Miramar — são logo ali.", "b23", .15],
+        ["Muda completa de roupa na mochila", "Se a mala de 23 atrasar (acontece), você tem o dia seguinte resolvido.", "mochila", .55]
+      ]
+    },
+    {
+      id: "frio", titulo: "A camada de fora",
+      nota: "Roupa de frio de verdade é <em>mais barata e melhor</em> em Portugal do que no Brasil. Decathlon, Primark, Lefties e Sport Zone — todas no Gaia Shopping ou a um metro de distância — resolvem tudo isto por menos do que uma jaqueta custa em São Paulo. Compre na primeira quinzena de outubro.",
+      itens: [
+        ["Casaco de inverno impermeável com capuz", "O item mais importante do seu inverno no Douro. Tem que ser impermeável de verdade, não resistente à água — chove de lado.", "la", 0, "€40–90"],
+        ["2 conjuntos de segunda pele térmica", "Decathlon. É o que faz você aguentar sair de casa em janeiro sem parecer um urso.", "la", 0, "€15–25"],
+        ["Meias térmicas grossas", "", "la", 0, "€10–15"],
+        ["Cachecol, gorro e luvas", "Ali o problema não é a temperatura, é o vento úmido que vem do Atlântico pelo rio.", "la", 0, "€15–25"],
+        ["Guarda-chuva resistente a vento", "Não compre o de €3. O vento que sobe o Douro vira guarda-chuva barato do avesso no primeiro dia.", "la", 0, "€12–20"],
+        ["Capa de chuva leve ou corta-vento", "Pra sair de casa nos dias em que o guarda-chuva não adianta.", "la", 0, "€10–20"],
+        ["Bota impermeável", "Chão molhado de outubro a março. Pé molhado no primeiro mês te ensina isso do jeito difícil.", "la", 0, "€40–70"]
+      ]
+    },
+    {
+      id: "calcado", titulo: "Calçados",
+      nota: "Calçado é o que mais pesa. Três pares é o teto — o quarto você compra lá se sentir falta.",
+      itens: [
+        ["Tênis confortável de caminhada", "Use no voo, não gasta peso de mala. Gaia e Porto são ladeira o dia inteiro.", "b23", 0],
+        ["1 sapato fechado mais arrumado", "Sapato bom deforma na mala despachada — vai na de mão.", "b10", .8],
+        ["Tênis de academia ou corrida", "Só se você realmente treina. Senão, corte.", "b23", .7],
+        ["Chinelo", "Havaianas custam caro em Portugal — leve o seu.", "b23", .3],
+        ["Chinelo de piscina ou academia", "Só se for usar ginásio ou piscina.", "b23", .2]
+      ]
+    },
+    {
+      id: "higiene", titulo: "Higiene e cuidados",
+      nota: "Regra simples: <em>o que se acha em qualquer Continente, compre lá</em>. Leve só o que é específico seu — e lembre que líquido acima de 100&nbsp;ml só pode ir na mala despachada.",
+      itens: [
+        ["Produtos da sua linha de cabelo", "Linha brasileira pra cabelo cacheado ou crespo é cara e escassa em Portugal. Este é o item que mais vale peso na mala.", "b23", .9],
+        ["Escova e pente", "", "b23", .2],
+        ["Necessaire com o básico pra uma semana", "Só o suficiente até a primeira ida ao supermercado.", "b23", .6],
+        ["Perfume que você usa", "Na mala despachada, se passar de 100 ml.", "b23", .3],
+        ["Maquiagem essencial", "O que for frágil ou caro vai na mala de mão.", "b10", .4],
+        ["Absorventes ou coletor pro primeiro mês", "", "b23", .3],
+        ["Barbeador e lâminas de reposição", "", "b23", .15],
+        ["Cortador de unha e pinça", "Tesoura e alicate não passam na mão — vão na despachada.", "b23", .1],
+        ["Shampoo, condicionador, sabonete, pasta de dente", "Continente, Pingo Doce, Mercadona ou Auchan. Muito mais barato que pagar em peso de mala.", "la", 0, "€15–25"],
+        ["Hidratante corporal e protetor labial", "O vento frio do inverno racha a pele de um jeito que o Brasil não te prepara.", "la", 0, "€8–15"],
+        ["Protetor solar", "Sim, mesmo no inverno. E setembro lá ainda queima.", "la", 0, "€8–15"],
+        ["Toalhas de banho", "Primark ou IKEA. Não vale o volume que ocupam na mala.", "la", 0, "€15–25"]
+      ]
+    },
+    {
+      id: "casa", titulo: "Apartamento mobiliado",
+      nota: "Mobiliado varia muito: alguns vêm com panela, louça e até roupa de cama, outros só com os móveis. <em>Peça a lista do que já vem antes de comprar qualquer coisa</em> — e lembre que aquecimento central praticamente não existe em Portugal.",
+      itens: [
+        ["Pedir ao senhorio a lista do que já vem no apartamento", "Faça isso antes de embarcar. Muda metade das compras abaixo.", "la", 0, "grátis"],
+        ["1 toalha fina e um lençol pra primeira noite", "Só pra não chegar num quarto vazio às 23h.", "b23", .55],
+        ["Aquecedor a óleo ou termoventilador", "O item que mais muda a qualidade do seu inverno. Worten, Continente ou Action.", "la", 0, "€35–70"],
+        ["Desumidificador ou caixas de sílica", "Roupa mofando no armário é a queixa nº 1 de quem passa o primeiro inverno no Douro. As caixinhas de €4 já ajudam muito.", "la", 0, "€5–60"],
+        ["Roupa de cama e edredão", "Mobiliado raramente inclui. IKEA de Matosinhos, Primark ou o Gaia Shopping.", "la", 0, "€40–80"],
+        ["Travesseiro", "Ninguém dorme bem no travesseiro dos outros.", "la", 0, "€10–20"],
+        ["Completar a cozinha", "Se já vem equipada, provavelmente você só precisa de uma faca boa, uma tábua e um escorredor.", "la", 0, "€15–40"],
+        ["Cabides", "Quase nunca vêm em número suficiente.", "la", 0, "€5–10"],
+        ["Kit de limpeza da casa", "Morando sozinha, a faxina é sua. Balde, pano, produto e um aspirador de mão barato.", "la", 0, "€20–40"],
+        ["Estendedor de roupa", "Se não vier com o apartamento. Quase nenhuma casa tem secadora e no inverno não seca lá fora.", "la", 0, "€15–25"],
+        ["Extensão elétrica", "Apartamento antigo nunca tem tomada onde você precisa.", "la", 0, "€5–10"],
+        ["Cartão SIM português (MEO, Vodafone ou NOS)", "Faça no aeroporto ou numa loja no primeiro dia — precisa de número português pra quase toda burocracia.", "la", 0, "€10–15"],
+        ["Passe Andante", "Vale nos dois lados do rio. De Gaia, o metro da linha D cruza a ponte e te deixa no centro do Porto em uns 10 minutos.", "la", 0, "€30/mês"]
+      ]
+    },
+    {
+      id: "extras", titulo: "Voo e conforto", nota: "",
+      itens: [
+        ["Garrafa de água reutilizável vazia", "Enche depois do raio-X. Portugal tem água potável em toda parte.", "mochila", .15],
+        ["Máscara de dormir e protetor auricular", "", "mochila", .05],
+        ["Escova de dente e mini pasta na mochila", "", "mochila", .1],
+        ["Caneta", "Pro formulário de imigração, que sempre aparece.", "mochila", .01],
+        ["Snacks pro voo", "", "mochila", .25],
+        ["Cadeado TSA e etiqueta com seus contatos na mala", "", "b23", .12],
+        ["Balança de mala portátil", "Pesa a mala antes de voltar. Custa pouco e evita €80 de excesso.", "b23", .1],
+        ["Sacolas dobráveis e organizadores de mala", "Cubos de organização fazem caber uns 20% a mais.", "b23", .35],
+        ["Presentinhos brasileiros", "Pra quem te receber e pros amigos novos. Café, doce, algo pequeno.", "b10", .5],
+        ["Fotos e um objeto de casa", "Fevereiro em Gaia escurece às 18h e chove. Morando sozinha, você vai querer isso por perto.", "b10", .25]
+      ]
+    }
+  ];
+
+  var MALAS = {
+    b23:     { nome: "Mala 23 kg", curto: "23 kg",      limite: 23 },
+    b10:     { nome: "Mala 10 kg", curto: "10 kg",      limite: 10 },
+    mochila: { nome: "Mochila",    curto: "Mochila",    limite: 8 },
+    la:      { nome: "Comprar lá", curto: "Comprar lá", limite: 0 }
+  };
+
+  var TEMAS = [
+    { nome: "Azulejo",   bg: "#d9e6f5" },
+    { nome: "Granito",   bg: "#e8e9ec" },
+    { nome: "Outono",    bg: "#f5ead6" },
+    { nome: "Atlântico", bg: "#102a38" },
+    { nome: "Vinho",     bg: "#2a1520" }
+  ];
+
+  var MODOS = {
+    garantir: { nome: "Garantir", texto: "O que precisa <strong>existir e estar com você</strong> no dia do voo: documento, apostila, seguro, cartão, e a burocracia dos primeiros dias. Marque só quando estiver na mão." },
+    levar:    { nome: "Levar",    texto: "O que entra nas malas. As bagagens acima <strong>enchem conforme você marca</strong> — e contam também os documentos, que viajam na mochila. O peso é estimativa por item; pese de verdade antes de fechar." },
+    comprar:  { nome: "Comprar",  texto: "O que você resolve <strong>em euros, já em Portugal</strong>. Um toque na pilulinha marca “falta comprar”; o segundo marca “comprado” e pergunta <strong>quanto você pagou de verdade</strong>. Toque na estimativa pra corrigir o preço a qualquer momento." },
+    volta:    { nome: "Volta",    texto: "Fevereiro: a lista se inverte. Cada coisa que veio na mala ou foi comprada aí recebe um destino — <strong>volta comigo</strong>, <strong>fica</strong> ou <strong>dar pra alguém</strong>. O cartão acima soma o peso do que volta: é aí que a balança de mala que você trouxe ganha função." }
+  };
+
+  /* o que tem prazo de verdade, na ordem em que trava as outras coisas */
+  var URGENTES = ["doc-0", "doc-1", "doc-7", "doc-8", "doc-4", "doc-10", "casa-0", "doc-11", "doc-15"];
+
+  var FILTROS = {
+    garantir: [["all", "Tudo"], ["todo", "Ainda falta"], ["feito", "Já garanti"]],
+    levar:    [["all", "Tudo"], ["todo", "Falta arrumar"], ["mochila", "Mochila"], ["b10", "Mala 10 kg"], ["b23", "Mala 23 kg"]],
+    comprar:  [["all", "Tudo"], ["falta", "Falta comprar"], ["ok", "Já comprei"]],
+    volta:    [["all", "Tudo"], ["sem", "Sem decisão"], ["volta", "Volta comigo"], ["fica", "Fica"], ["dar", "Dar"]]
+  };
+
+  /* =========================================================
+     cor
+     ========================================================= */
+
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+  function wrapH(h) { return ((h % 360) + 360) % 360; }
+
+  function hexToRgb(hex) {
+    var m = String(hex).trim().replace("#", "");
+    if (m.length === 3) m = m[0] + m[0] + m[1] + m[1] + m[2] + m[2];
+    var n = parseInt(m, 16);
+    if (isNaN(n)) return { r: 0, g: 0, b: 0 };
+    return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
+  }
+
+  function hexToHsl(hex) {
+    var c = hexToRgb(hex), r = c.r / 255, g = c.g / 255, b = c.b / 255;
+    var mx = Math.max(r, g, b), mn = Math.min(r, g, b), d = mx - mn;
+    var h = 0, s = 0, l = (mx + mn) / 2;
+    if (d) {
+      s = d / (1 - Math.abs(2 * l - 1));
+      if (mx === r) h = 60 * (((g - b) / d) % 6);
+      else if (mx === g) h = 60 * ((b - r) / d + 2);
+      else h = 60 * ((r - g) / d + 4);
+    }
+    return { h: wrapH(h), s: s * 100, l: l * 100 };
+  }
+
+  function hslToHex(h, s, l) {
+    h = wrapH(h); s = clamp(s, 0, 100) / 100; l = clamp(l, 0, 100) / 100;
+    var c = (1 - Math.abs(2 * l - 1)) * s, x = c * (1 - Math.abs(((h / 60) % 2) - 1)), m = l - c / 2;
+    var t = h < 60 ? [c, x, 0] : h < 120 ? [x, c, 0] : h < 180 ? [0, c, x]
+          : h < 240 ? [0, x, c] : h < 300 ? [x, 0, c] : [c, 0, x];
+    return "#" + t.map(function (v) {
+      return Math.round((v + m) * 255).toString(16).padStart(2, "0");
+    }).join("");
+  }
+
+  function rgbTrio(hex) { var c = hexToRgb(hex); return c.r + ", " + c.g + ", " + c.b; }
+
+  function lumin(hex) {
+    var c = hexToRgb(hex);
+    var f = [c.r, c.g, c.b].map(function (v) {
+      v /= 255;
+      return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4);
+    });
+    return .2126 * f[0] + .7152 * f[1] + .0722 * f[2];
+  }
+  function contraste(a, b) {
+    var x = lumin(a), y = lumin(b);
+    return (Math.max(x, y) + .05) / (Math.min(x, y) + .05);
+  }
+
+  /* empurra a luminosidade até a cor ficar legível sobre os dois tons do fundo */
+  function legivel(hex, f1, f2, alvo) {
+    var h = hexToHsl(hex);
+    var escuro = hexToHsl(f1).l < 46;
+    var passo = escuro ? 2.5 : -2.5;
+    var l = h.l;
+    for (var i = 0; i < 44; i++) {
+      var c = hslToHex(h.h, h.s, l);
+      if (Math.min(contraste(c, f1), contraste(c, f2)) >= alvo) return c;
+      var novo = clamp(l + passo, 0, 100);
+      if (novo === l) break;
+      l = novo;
+    }
+    return hslToHex(h.h, h.s, l);
+  }
+
+  /* matiz ±140 do fundo; o lado mais perto do verde vira o positivo */
+  function distH(a, b) { var d = Math.abs(wrapH(a) - wrapH(b)); return d > 180 ? 360 - d : d; }
+  function sinais(h) {
+    var mais = wrapH(h + 140), menos = wrapH(h - 140);
+    return distH(mais, 130) <= distH(menos, 130) ? [mais, menos] : [menos, mais];
+  }
+
+  var root = document.documentElement;
+
+  function meta(nome, valor) {
+    var m = document.querySelector('meta[name="' + nome + '"]');
+    if (!m) { m = document.createElement("meta"); m.setAttribute("name", nome); document.head.appendChild(m); }
+    m.setAttribute("content", valor);
+  }
+
+  function aplicarCores(p) {
+    var bg = p.bg || TEMAS[0].bg;
+    var f = hexToHsl(bg);
+    var escuro = f.l < 46;
+
+    var bg2 = hslToHex(f.h + 24, 62, escuro ? clamp(f.l + 9, 0, 100) : clamp(f.l - 7, 0, 100));
+
+    var accent = (p.manual && p.accent) ? p.accent
+      : hslToHex(f.h + 4, clamp(f.s * 1.25, 24, 100), escuro ? 70 : 32);
+    var texto = (p.manual && p.text) ? p.text
+      : hslToHex(f.h, Math.min(f.s, 14), escuro ? 94 : 15);
+
+    var tH = hexToHsl(texto);
+    var muted = (p.manual && p.text)
+      ? hslToHex(tH.h, tH.s * .8, escuro ? 70 : 44)
+      : hslToHex(f.h, Math.min(f.s, 12), escuro ? 70 : 44);
+
+    var positivo, negativo;
+    if (p.manual && p.pos) {
+      positivo = p.pos;
+      var pH = hexToHsl(positivo);
+      negativo = hslToHex(pH.h + 160, clamp(pH.s, 40, 90), pH.l);
+    } else {
+      var par = sinais(f.h);
+      positivo = hslToHex(par[0], clamp(f.s * 1.15, 42, 78), escuro ? 62 : 34);
+      negativo = hslToHex(par[1], clamp(f.s * 1.15, 42, 78), escuro ? 66 : 40);
+    }
+
+    /* é isto que faz as palavras coloridas se adaptarem ao fundo */
+    texto    = legivel(texto,    bg, bg2, 8);
+    muted    = legivel(muted,    bg, bg2, 4);
+    accent   = legivel(accent,   bg, bg2, 4.6);
+    positivo = legivel(positivo, bg, bg2, 4.6);
+    negativo = legivel(negativo, bg, bg2, 4.6);
+
+    /* a luz de Portugal: as manchas sobem de manhã e recuam à noite, na hora de lá */
+    var luz = (typeof fatorLuz === "function") ? fatorLuz() : .6;
+    var blob1 = hslToHex(f.h + 44, clamp(f.s * 1.5, 40, 85), (escuro ? 30 : 66) + luz * 14);
+    var blob2 = hslToHex(f.h - 52, clamp(f.s * 1.4, 38, 82), (escuro ? 27 : 70) + luz * 14);
+
+    var s = root.style;
+    s.setProperty("--bg1", bg);
+    s.setProperty("--bg2", bg2);
+    s.setProperty("--bg1-rgb", rgbTrio(bg));
+    s.setProperty("--blob1", blob1);
+    s.setProperty("--blob2", blob2);
+    s.setProperty("--text", texto);
+    s.setProperty("--text-rgb", rgbTrio(texto));
+    s.setProperty("--muted", muted);
+    s.setProperty("--accent", accent);
+    s.setProperty("--accent-rgb", rgbTrio(accent));
+    s.setProperty("--positivo", positivo);
+    s.setProperty("--positivo-rgb", rgbTrio(positivo));
+    s.setProperty("--negativo", negativo);
+    s.setProperty("--negativo-rgb", rgbTrio(negativo));
+    s.setProperty("--glass", escuro ? "rgba(255,255,255,.07)" : "rgba(255,255,255,.42)");
+    s.setProperty("--glass-2", escuro ? "rgba(255,255,255,.12)" : "rgba(255,255,255,.62)");
+    s.setProperty("--linha", escuro ? "rgba(255,255,255,.15)" : "rgba(255,255,255,.70)");
+    s.setProperty("--sombra", escuro ? "rgba(0,0,0,.45)" : "rgba(" + rgbTrio(texto) + ",.13)");
+    s.setProperty("--brilho", escuro ? "rgba(255,255,255,.09)" : "rgba(255,255,255,.80)");
+    s.setProperty("--op-blob", ((escuro ? .30 : .34) + luz * .26).toFixed(3));
+    s.setProperty("--op-blob3", ((escuro ? .13 : .16) + luz * .16).toFixed(3));
+
+    meta("theme-color", bg);
+    desenharIcone(bg, accent, escuro);
+    return { accent: accent, positivo: positivo, negativo: negativo, escuro: escuro };
+  }
+
+  function amostraDe(bg) {
+    var f = hexToHsl(bg), escuro = f.l < 46;
+    var bg2 = hslToHex(f.h + 24, 62, escuro ? clamp(f.l + 9, 0, 100) : clamp(f.l - 7, 0, 100));
+    return [
+      bg,
+      legivel(hslToHex(f.h + 4, clamp(f.s * 1.25, 24, 100), escuro ? 70 : 32), bg, bg2, 4.6),
+      legivel(hslToHex(sinais(f.h)[0], clamp(f.s * 1.15, 42, 78), escuro ? 62 : 34), bg, bg2, 4.6)
+    ];
+  }
+
+  /* =========================================================
+     ícone de app — desenhado no canvas, muda junto com o tema
+     ========================================================= */
+
+  /* o avião 2: jato visto de cima, girado 40° no desenho */
+  var JATO = "M12 1.8C13.1 1.8 14 3.3 14 5.1V8.6L21.8 13.2V15.5L14 13.2V17.5L16.6 19.4V21.2L12 19.9L7.4 21.2V19.4L10 17.5V13.2L2.2 15.5V13.2L10 8.6V5.1C10 3.3 10.9 1.8 12 1.8Z";
+
+  function elo(rel, href, tipo, tam) {
+    var sel = 'link[rel="' + rel + '"]' + (tam ? '[sizes="' + tam + '"]' : "");
+    var l = document.querySelector(sel);
+    if (!l) {
+      l = document.createElement("link");
+      l.setAttribute("rel", rel);
+      if (tam) l.setAttribute("sizes", tam);
+      if (tipo) l.setAttribute("type", tipo);
+      document.head.appendChild(l);
+    }
+    l.setAttribute("href", href);
+  }
+
+  var ultimoIcone = "";
+
+  function desenharIcone(bg, accent, escuro) {
+    var chave = bg + "|" + accent + "|" + escuro;
+    if (chave === ultimoIcone) return;
+    ultimoIcone = chave;
+    try {
+      var N = 180, cv = document.createElement("canvas");
+      cv.width = N; cv.height = N;
+      var x = cv.getContext("2d");
+      if (!x) return;
+
+      var a = hexToHsl(accent);
+      var g = x.createLinearGradient(0, 0, N, N);
+      g.addColorStop(0, hslToHex(a.h, clamp(a.s, 38, 95), escuro ? 30 : 27));
+      g.addColorStop(1, hslToHex(a.h + 28, clamp(a.s * .95, 34, 92), escuro ? 17 : 42));
+      x.fillStyle = g;
+      x.fillRect(0, 0, N, N);
+
+      var claro = escuro ? "#ffffff" : bg;
+
+      /* só o avião, centrado e grande */
+      try {
+        x.save();
+        x.translate(N / 2, N / 2);
+        x.rotate(-40 * Math.PI / 180);
+        x.scale(6.1, 6.1);
+        x.translate(-12, -12);
+        x.fillStyle = claro;
+        x.fill(new Path2D(JATO));
+        x.restore();
+      } catch (e) {
+        x.fillStyle = claro;
+        x.beginPath();
+        x.moveTo(40, 112); x.lineTo(140, 52); x.lineTo(108, 100); x.lineTo(120, 136); x.closePath();
+        x.fill();
+      }
+
+      var url = cv.toDataURL("image/png");
+      elo("apple-touch-icon", url, null, "180x180");
+      elo("icon", url, "image/png", "180x180");
+      meta("apple-mobile-web-app-capable", "yes");
+      meta("mobile-web-app-capable", "yes");
+      meta("apple-mobile-web-app-title", "Portugal");
+      meta("apple-mobile-web-app-status-bar-style", escuro ? "black-translucent" : "default");
+
+      /* servido de um site de verdade (GitHub Pages): o manifest do disco manda */
+      if (document.querySelector('link[rel="manifest"][data-fixo]')) return;
+
+      try {
+        var man = {
+          name: "Mala pra Portugal", short_name: "Portugal",
+          display: "standalone", background_color: bg, theme_color: bg,
+          icons: [{ src: url, sizes: "180x180", type: "image/png", purpose: "any" }]
+        };
+        var b = new Blob([JSON.stringify(man)], { type: "application/manifest+json" });
+        if (window.__man) URL.revokeObjectURL(window.__man);
+        window.__man = URL.createObjectURL(b);
+        elo("manifest", window.__man);
+      } catch (e) {}
+    } catch (e) {}
+  }
+
+  /* =========================================================
+     estado
+     ========================================================= */
+
+  var CHAVE = "mala-porto-v5", CHAVE_ANTIGA = "mala-porto-v4";
+
+  var estado = {
+    v: 5, ts: 0,
+    feito: {}, compra: {}, preco: {}, gasto: {},
+    quando: {},   /* data em que cada compra foi paga */
+    nota: {},     /* anotação livre por item */
+    volta: {},    /* { id: "volta" | "fica" | "dar" } */
+    kgv: {},      /* peso corrigido, usado na volta */
+    selo: {},     /* { grupo: "2026-08-24" } — data em que o grupo fechou */
+    cambio: { taxa: 0, ant: 0, dia: "", ts: 0, fonte: "" },
+    novos: [], seq: 0,
+    prefs: { bg: TEMAS[0].bg, tema: TEMAS[0].nome, manual: false, text: "", accent: "", pos: "", volta: false }
+  };
+
+  var VOO = new Date(2026, 8, 10);
+
+  function hojeISO() {
+    var d = new Date();
+    return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  }
+  function deISO(s) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(s || ""));
+    return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null;
+  }
+  function diasAteVoo() {
+    var h = new Date();
+    return Math.ceil((VOO - new Date(h.getFullYear(), h.getMonth(), h.getDate())) / 86400000);
+  }
+  var MESES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
+  function curtaData(iso) {
+    var d = deISO(iso);
+    return d ? d.getDate() + " " + MESES[d.getMonth()] : "—";
+  }
+
+  var ITENS = [], POR_ID = {};
+
+  function montarItens() {
+    ITENS = []; POR_ID = {};
+    function add(o) { ITENS.push(o); POR_ID[o.id] = o; }
+    GRUPOS.forEach(function (g) {
+      g.itens.forEach(function (it, i) {
+        add({ id: g.id + "-" + i, grupo: g.id, nome: it[0], nota: it[1] || "", mala: it[2], kg: it[3] || 0, preco: it[4] || "" });
+      });
+    });
+    (estado.novos || []).forEach(function (n) {
+      add({ id: n.id, grupo: "meus", nome: n.nome, nota: n.nota || "", mala: n.mala, kg: n.kg || 0, preco: n.preco || "", doc: !!n.doc, meu: true });
+    });
+  }
+
+  function abaDe(it) {
+    if (it.doc || it.grupo === "doc" || it.grupo === "burocracia") return "garantir";
+    if (it.mala === "la") return "comprar";
+    return "levar";
+  }
+
+  function compraDe(it) {
+    var v = estado.compra[it.id];
+    if (v === "off") return "";
+    if (v === "falta" || v === "ok") return v;
+    return (it.mala === "la" && abaDe(it) === "comprar") ? "falta" : "";
+  }
+
+  /* ---- dinheiro ---- */
+
+  function precoTxt(it) {
+    var o = estado.preco[it.id];
+    return (typeof o === "string") ? o : (it.preco || "");
+  }
+  function faixaItem(it) { return faixaPreco(precoTxt(it)); }
+  function gastoDe(it) {
+    var g = estado.gasto[it.id];
+    return (typeof g === "number" && isFinite(g)) ? g : null;
+  }
+  function ehCompra(it) {
+    return abaDe(it) === "comprar" || !!faixaItem(it) || gastoDe(it) !== null;
+  }
+  function numBR(n) {
+    var v = Math.round(n * 100) / 100;
+    var neg = v < 0; v = Math.abs(v);
+    var i = Math.floor(v), d = Math.round((v - i) * 100);
+    var si = String(i).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return (neg ? "−" : "") + si + (d ? "," + String(d).padStart(2, "0") : "");
+  }
+  function fmtE(n) { return "€" + numBR(n); }
+  function fmtFaixa(a, b) { return a === b ? fmtE(a) : "€" + numBR(a) + "–" + numBR(b); }
+  /* =========================================================
+     cotação do euro — automática: busca ao abrir, retenta sozinha se falhar
+     ========================================================= */
+
+  var FONTES = [
+    {
+      nome: "AwesomeAPI",
+      url: "https://economia.awesomeapi.com.br/json/last/EUR-BRL",
+      ler: function (j) {
+        var d = j && j.EURBRL;
+        var t = d && parseFloat(d.bid);
+        return (t && isFinite(t)) ? { taxa: t, dia: String(d.create_date || "").slice(0, 10) || hojeISO() } : null;
+      }
+    },
+    {
+      nome: "BCE",
+      url: "https://api.frankfurter.app/latest?from=EUR&to=BRL",
+      ler: function (j) {
+        var t = j && j.rates && parseFloat(j.rates.BRL);
+        return (t && isFinite(t)) ? { taxa: t, dia: j.date || hojeISO() } : null;
+      }
+    },
+    {
+      nome: "ER-API",
+      url: "https://open.er-api.com/v6/latest/EUR",
+      ler: function (j) {
+        var t = j && j.rates && parseFloat(j.rates.BRL);
+        return (t && isFinite(t)) ? { taxa: t, dia: hojeISO() } : null;
+      }
+    }
+  ];
+
+  function pegar(url) {
+    var ctrl = ("AbortController" in window) ? new AbortController() : null;
+    var to = setTimeout(function () { if (ctrl) ctrl.abort(); }, 7000);
+    return fetch(url, ctrl ? { signal: ctrl.signal, cache: "no-store" } : { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function (j) { clearTimeout(to); return j; })
+      .catch(function (e) { clearTimeout(to); throw e; });
+  }
+
+  var tentativas = 0, tRetentar = null;
+
+  function buscarCambio(forcar) {
+    var c = estado.cambio || {};
+    var fresca = c.taxa > 0 && c.ts && (Date.now() - c.ts) < 5 * 3600 * 1000 && c.dia === hojeISO();
+    if (!forcar && fresca) { pintarCambio(); return Promise.resolve(); }
+
+    clearTimeout(tRetentar);
+    if (forcar) tentativas = 0;
+
+    var i = 0;
+    function tenta() {
+      if (i >= FONTES.length) {
+        /* nenhuma fonte respondeu: tenta de novo sozinha, cada vez mais espaçado */
+        pintarCambio(true);
+        tentativas++;
+        if (tentativas <= 6) {
+          tRetentar = setTimeout(function () { buscarCambio(false); }, Math.min(15000 * tentativas, 120000));
+        }
+        return Promise.resolve();
+      }
+      var f = FONTES[i++];
+      return pegar(f.url).then(function (j) {
+        var r = f.ler(j);
+        if (!r) throw 0;
+        var antiga = estado.cambio && estado.cambio.taxa || 0;
+        tentativas = 0;
+        estado.cambio = {
+          taxa: r.taxa,
+          ant: (antiga && Math.abs(antiga - r.taxa) > 0.0001) ? antiga : (estado.cambio && estado.cambio.ant) || 0,
+          dia: r.dia, ts: Date.now(), fonte: f.nome
+        };
+        salvar();
+        pintarCambio();
+        pintar();
+      }).catch(tenta);
+    }
+    return tenta();
+  }
+
+  function taxa() {
+    var t = estado.cambio && estado.cambio.taxa;
+    return (t && isFinite(t) && t > 0) ? t : 0;
+  }
+  function fmtR(n) { return "R$ " + numBR(Math.round(n)); }
+  function reaisDe(e) { var t = taxa(); return t ? e * t : null; }
+  function faixaBRL(a, b) {
+    var t = taxa();
+    if (!t) return "";
+    return a === b ? fmtR(a * t) : "R$ " + numBR(Math.round(a * t)) + "–" + numBR(Math.round(b * t));
+  }
+
+  function idadeCambio() {
+    var d = deISO((estado.cambio && estado.cambio.dia) || "");
+    if (!d) return null;
+    return Math.round((deISO(hojeISO()) - d) / 86400000);
+  }
+
+  function pintarCambio(falhou) {
+    var elT = document.getElementById("cambioTaxa"),
+        elS = document.getElementById("cambioSeta"),
+        elF = document.getElementById("cambioFonte");
+    if (!elT) return;
+    var c = estado.cambio || {}, t = taxa();
+
+    if (!t) {
+      elT.textContent = "€1 = R$ —";
+      elS.textContent = "";
+      elF.textContent = falhou ? "sem rede — toque pra tentar" : "buscando a cotação…";
+      elF.className = "cambio-fonte" + (falhou ? " velha" : "");
+      return;
+    }
+
+    elT.textContent = "€1 = R$ " + numBR(Math.round(t * 100) / 100);
+
+    var dif = c.ant ? t - c.ant : 0;
+    if (Math.abs(dif) >= 0.005) {
+      elS.textContent = (dif > 0 ? "▲ " : "▼ ") + numBR(Math.abs(Math.round(dif * 100) / 100));
+      elS.className = "cambio-seta " + (dif > 0 ? "sobe" : "desce");
+      elS.title = dif > 0 ? "o euro subiu desde a última cotação" : "o euro caiu desde a última cotação";
+    } else {
+      elS.textContent = "";
+      elS.className = "cambio-seta";
+    }
+
+    var idade = idadeCambio();
+    var quando = idade === 0 ? "hoje" : idade === 1 ? "ontem" : (idade > 1 ? "há " + idade + " dias" : "");
+    elF.textContent = (c.fonte ? c.fonte + " · " : "") + quando;
+    elF.className = "cambio-fonte" + (idade !== null && idade > 2 ? " velha" : "");
+  }
+
+  /* =========================================================
+     figuras
+     ========================================================= */
+
+  function figura(uid, tipo) {
+    var corpo, detalhe = "";
+    if (tipo === "b23") {
+      corpo = "M20 36 h80 a10 10 0 0 1 10 10 v50 a10 10 0 0 1 -10 10 h-80 a10 10 0 0 1 -10 -10 v-50 a10 10 0 0 1 10 -10 z";
+      detalhe = '<path class="fino" d="M46 22 h28 a6 6 0 0 1 6 6 v8 M46 22 a6 6 0 0 0 -6 6 v8"/>' +
+                '<path class="fino" d="M38 36 v70 M82 36 v70"/><path class="fino" d="M28 106 v6 M92 106 v6"/>';
+    } else if (tipo === "b10") {
+      corpo = "M28 40 h64 a9 9 0 0 1 9 9 v48 a9 9 0 0 1 -9 9 h-64 a9 9 0 0 1 -9 -9 v-48 a9 9 0 0 1 9 -9 z";
+      detalhe = '<path class="fino" d="M44 14 h32 M50 14 v26 M70 14 v26"/><path class="fino" d="M19 66 h82"/>' +
+                '<path class="fino" d="M34 106 v6 M86 106 v6"/>';
+    } else if (tipo === "mochila") {
+      corpo = "M32 44 a28 28 0 0 1 56 0 v50 a10 10 0 0 1 -10 10 h-36 a10 10 0 0 1 -10 -10 z";
+      detalhe = '<path class="fino" d="M52 20 a8 8 0 0 1 16 0"/><path class="fino" d="M32 62 h56"/>' +
+                '<path class="fino" d="M46 78 h28 a5 5 0 0 1 5 5 v14 h-38 v-14 a5 5 0 0 1 5 -5 z"/>';
+    } else if (tipo === "sacola") {
+      corpo = "M26 42 h68 l-7 58 a9 9 0 0 1 -9 8 h-36 a9 9 0 0 1 -9 -8 z";
+      detalhe = '<path class="fino" d="M45 42 v-8 a15 15 0 0 1 30 0 v8"/>';
+    } else {
+      corpo = "M60 12 l38 15 v30 c0 26 -16 44 -38 51 c-22 -7 -38 -25 -38 -51 v-30 z";
+      detalhe = '<path class="fino" d="M44 58 l12 12 l22 -24"/>';
+    }
+    return '<svg class="fig" viewBox="0 0 120 120" role="img" aria-hidden="true">' +
+      '<defs><clipPath id="cp-' + uid + '"><path d="' + corpo + '"/></clipPath></defs>' +
+      '<g clip-path="url(#cp-' + uid + ')">' +
+        '<g class="enche" data-enche><rect x="0" y="0" width="120" height="130"/></g>' +
+        '<g class="onda" data-onda><rect x="0" y="0" width="120" height="4" rx="2"/></g>' +
+      "</g>" +
+      '<path class="traco" d="' + corpo + '"/>' + detalhe + "</svg>";
+  }
+
+  function encher(card, pct) {
+    var y = 120 - clamp(pct, 0, 1) * 120;
+    var e = card.querySelector("[data-enche]"), o = card.querySelector("[data-onda]");
+    if (!e) return;
+    e.style.transform = "translateY(" + y + "px)";
+    o.style.transform = "translateY(" + (y - 2) + "px)";
+    o.style.opacity = pct > 0 && pct < 1 ? "" : "0";
+  }
+
+  /* =========================================================
+     construção
+     ========================================================= */
+
+  var main = document.getElementById("main");
+  var painel = document.getElementById("painel");
+  var elModo = document.getElementById("modo");
+  var elFiltros = document.getElementById("filtros");
+
+  var aba = "garantir", filtro = "all";
+
+  function esc(t) {
+    return String(t).replace(/&(?![a-z]+;|#)/gi, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  function etiquetasHTML(it) {
+    var ets = "";
+    if (it.mala === "la" && !it.doc) {
+      ets += '<span class="et">' + (abaDe(it) === "garantir" ? "Fazer lá" : "Comprar lá") + "</span>";
+    } else {
+      ets += '<span class="et mala">' + (it.doc ? "Documento" : MALAS[it.mala].curto) + "</span>";
+      if (it.kg > 0) ets += '<span class="et">' + it.kg.toFixed(2).replace(/0$/, "").replace(".", ",") + " kg</span>";
+    }
+
+    var f = faixaItem(it), g = gastoDe(it);
+    if (f) {
+      ets += '<button class="et preco" type="button" data-preco="' + it.id + '" title="Editar preço">≈ ' + esc(precoTxt(it)) + "</button>";
+      var emR = faixaBRL(f[0], f[1]);
+      if (emR) ets += '<span class="et brl" title="Pela cotação de hoje">' + esc(emR) + "</span>";
+    } else if (ehCompra(it)) {
+      ets += '<button class="et definir" type="button" data-preco="' + it.id + '" title="Definir preço">Definir preço</button>';
+    }
+    if (g !== null) {
+      ets += '<button class="et gasto" type="button" data-preco="' + it.id + '" title="Editar o que você pagou">Paguei ' + esc(fmtE(g)) + "</button>";
+      var gr = reaisDe(g);
+      if (gr !== null) ets += '<span class="et brl">' + esc(fmtR(gr)) + "</span>";
+      var q = estado.quando[it.id];
+      if (q) ets += '<span class="et" title="Data da compra">' + esc(curtaData(q)) + "</span>";
+    }
+
+    if (ehCompra(it)) ets += '<button class="compra" type="button" data-compra="' + it.id + '" data-c=""></button>';
+
+    var nt = estado.nota[it.id];
+    if (nt) {
+      ets += '<button class="et anotado" type="button" data-anot="' + it.id + '" title="Editar anotação">✎ ' +
+        esc(nt.length > 38 ? nt.slice(0, 38) + "…" : nt) + "</button>";
+    } else {
+      ets += '<button class="et anotar" type="button" data-anot="' + it.id + '" title="Anotar">✎ nota</button>';
+    }
+
+    if (aba === "volta" && naVolta(it)) {
+      var v = estado.volta[it.id] || "";
+      ets += '<span class="volta-bts">' +
+        '<button class="volta-bt" type="button" data-volta="volta" data-vid="' + it.id + '" aria-pressed="' + (v === "volta") + '">Volta</button>' +
+        '<button class="volta-bt fica" type="button" data-volta="fica" data-vid="' + it.id + '" aria-pressed="' + (v === "fica") + '">Fica</button>' +
+        '<button class="volta-bt dar" type="button" data-volta="dar" data-vid="' + it.id + '" aria-pressed="' + (v === "dar") + '">Dar</button>' +
+        "</span>";
+      if (v === "volta") {
+        var kv = pesoVolta(it);
+        ets += '<button class="et pesar" type="button" data-pesar="' + it.id + '" title="Corrigir o peso">' +
+          (kv > 0 ? esc(numBR(kv) + " kg") : "definir peso") + "</button>";
+      }
+    }
+
+    if (it.meu) ets += '<button class="apagar" type="button" data-apagar="' + it.id + '" aria-label="Remover ' + esc(it.nome) + '" title="Remover">×</button>';
+    return ets;
+  }
+
+  /* ---- volta ---- */
+
+  function naVolta(it) {
+    if (it.grupo === "burocracia") return false;
+    if (abaDe(it) === "garantir") return false;
+    if (it.mala === "la") return compraDe(it) === "ok";
+    return true;
+  }
+  function pesoVolta(it) {
+    var k = estado.kgv[it.id];
+    if (typeof k === "number" && isFinite(k)) return k;
+    return it.kg || 0;
+  }
+
+  function linhaItem(it) {
+    var editor = "";
+    if (ehCompra(it)) {
+      editor =
+        '<div class="editor" hidden>' +
+          '<div class="campos">' +
+            "<label>Estimativa<input type=\"text\" data-est placeholder=\"€20–40\"></label>" +
+            "<label>Paguei<input type=\"text\" inputmode=\"decimal\" data-pago placeholder=\"€0\"></label>" +
+          "</div>" +
+          "<label>Quando<input type=\"date\" data-quando></label>" +
+          '<p class="dica" data-conv></p>' +
+          '<p class="dica">A estimativa aceita um valor só ou uma faixa. “Paguei” é o valor real — é ele que entra no total gasto e no gráfico por semana.</p>' +
+          '<div class="acoes">' +
+            '<button class="mini forte" type="button" data-salvar>Salvar</button>' +
+            '<button class="mini" type="button" data-cancelar>Cancelar</button>' +
+            '<button class="mini" type="button" data-limpar>Limpar o pago</button>' +
+          "</div>" +
+        "</div>";
+    }
+    return '<li class="item" data-id="' + it.id + '">' +
+      '<input class="marca" type="checkbox" id="k-' + it.id + '">' +
+      '<div class="corpo">' +
+        '<label class="nome" for="k-' + it.id + '"><span class="txt">' + esc(it.nome) + "</span>" +
+          (it.nota ? '<span class="nota">' + it.nota + "</span>" : "") +
+        "</label>" +
+        '<div class="etiquetas">' + etiquetasHTML(it) + "</div>" + editor +
+      "</div></li>";
+  }
+
+  function construir() {
+    montarItens();
+    main.innerHTML = "";
+    GRUPOS.concat([{ id: "meus", titulo: "Meus itens", nota: "" }]).forEach(function (g) {
+      var lista = ITENS.filter(function (it) { return it.grupo === g.id; });
+      if (!lista.length) return;
+      var sec = document.createElement("section");
+      sec.className = "glass grupo";
+      sec.id = "g-" + g.id;
+      sec.innerHTML =
+        '<div class="grupo-topo"><h2>' + g.titulo + '</h2><span class="cont"></span></div>' +
+        (g.nota ? '<p class="grupo-nota">' + g.nota + "</p>" : "") +
+        '<ul class="itens">' + lista.map(linhaItem).join("") + "</ul>";
+      main.appendChild(sec);
+    });
+    var v = document.createElement("p");
+    v.className = "glass vazio";
+    v.id = "vazio";
+    v.hidden = true;
+    v.textContent = "Nada aqui com esse filtro.";
+    main.appendChild(v);
+  }
+
+  function montarPainel() {
+    painel.innerHTML = "";
+    painel.className = "painel" + (aba === "levar" ? " tres" : "");
+    if (aba === "levar") {
+      ["mochila", "b10", "b23"].forEach(function (k) {
+        var d = document.createElement("div");
+        d.className = "glass cartao";
+        d.dataset.card = k;
+        d.innerHTML = figura(k, k) + '<div class="titulo">' + MALAS[k].nome + "</div>" +
+          '<div class="grande" data-g></div><div class="peq" data-p></div>' +
+          '<div class="barra"><i data-b></i></div>';
+        painel.appendChild(d);
+      });
+    } else {
+      var d = document.createElement("div");
+      d.className = "glass cartao largo" + (aba === "comprar" ? " compras" : "");
+      d.dataset.card = aba;
+      var fig = aba === "comprar" ? "sacola" : aba === "volta" ? "b23" : "escudo";
+      var tit = aba === "comprar" ? "Compras em Portugal" : aba === "volta" ? "O que volta na mala" : "Documentos e burocracia";
+      d.innerHTML = figura(aba, fig) +
+        '<div class="dados"><div class="titulo">' + tit + "</div>" +
+        '<div class="grande" data-g></div><div class="peq" data-p></div>' +
+        '<div class="barra"><i data-b></i></div></div>';
+      painel.appendChild(d);
+
+      if (aba === "comprar") {
+        var o = document.createElement("div");
+        o.className = "glass orcamento";
+        o.id = "orcamento";
+        o.innerHTML =
+          '<p class="rotulo">Orçamento</p>' +
+          '<div class="orc-linhas">' +
+            '<div class="orc-linha destaque"><span class="rot2">Gasto até agora</span><span class="val" data-o="gasto"></span></div>' +
+            '<div class="orc-linha"><span class="rot2">Previsto pro que já resolvi</span><span class="val" data-o="prev"></span></div>' +
+            '<div class="orc-linha"><span class="rot2">Ainda por gastar</span><span class="val" data-o="falta"></span></div>' +
+            '<div class="orc-linha"><span class="rot2">Total projetado</span><span class="val" data-o="proj"></span></div>' +
+          "</div>" +
+          '<div class="orc-barra"><i data-o="barra-g"></i><u data-o="barra-f"></u></div>' +
+          '<p class="veredito" data-o="veredito"></p>' +
+          '<div class="semana" id="semana"></div>';
+        painel.appendChild(o);
+      }
+    }
+    elModo.innerHTML = '<p class="rotulo">' + MODOS[aba].nome + "</p><p>" + MODOS[aba].texto + "</p>";
+  }
+
+  function montarFiltros() {
+    elFiltros.innerHTML = FILTROS[aba].map(function (f) {
+      return '<button type="button" data-f="' + f[0] + '" aria-pressed="' + (f[0] === filtro) + '">' + f[1] + "</button>";
+    }).join("");
+  }
+
+  function faixaPreco(t) {
+    var m = /€\s*(\d+)(?:\s*[–—-]\s*(\d+))?/.exec(t || "");
+    if (!m) return null;
+    return [parseInt(m[1], 10), m[2] ? parseInt(m[2], 10) : parseInt(m[1], 10)];
+  }
+
+  function passa(it) {
+    if (aba === "volta") {
+      if (!naVolta(it)) return false;
+      var v = estado.volta[it.id] || "";
+      if (filtro === "all") return true;
+      if (filtro === "sem") return !v;
+      return v === filtro;
+    }
+    if (abaDe(it) !== aba) return false;
+    if (filtro === "all") return true;
+    if (filtro === "todo") return !estado.feito[it.id];
+    if (filtro === "feito") return !!estado.feito[it.id];
+    if (filtro === "falta") return compraDe(it) === "falta";
+    if (filtro === "ok") return compraDe(it) === "ok";
+    return it.mala === filtro;
+  }
+
+  function pintar() {
+    var kg = { b23: 0, b10: 0, mochila: 0 };
+    var tot = { b23: 0, b10: 0, mochila: 0 }, fez = { b23: 0, b10: 0, mochila: 0 };
+    var abaTot = { garantir: 0, levar: 0, comprar: 0, volta: 0 }, abaFez = { garantir: 0, levar: 0, comprar: 0, volta: 0 };
+    var falta = 0, ok = 0;
+    var kgVolta = 0, cVolta = { volta: 0, fica: 0, dar: 0 };
+    var gTot = {}, gFez = {};
+    var origA = 0, origB = 0, prevA = 0, prevB = 0, faltaA = 0, faltaB = 0, gastoTot = 0, comGasto = 0;
+
+    ITENS.forEach(function (it) {
+      var t = abaDe(it), done = !!estado.feito[it.id];
+      abaTot[t]++; if (done) abaFez[t]++;
+      gTot[it.grupo] = (gTot[it.grupo] || 0) + 1;
+      if (done) gFez[it.grupo] = (gFez[it.grupo] || 0) + 1;
+      if (naVolta(it)) {
+        abaTot.volta++;
+        var dv = estado.volta[it.id] || "";
+        if (dv) { abaFez.volta++; cVolta[dv]++; }
+        if (dv === "volta") kgVolta += pesoVolta(it);
+      }
+      /* a bagagem conta tudo que fisicamente entra nela, documento incluído */
+      if (tot[it.mala] !== undefined) {
+        tot[it.mala]++; kg[it.mala] += it.kg; if (done) fez[it.mala]++;
+      }
+      if (t === "comprar") {
+        if (compraDe(it) === "ok") ok++; else falta++;
+      }
+      if (ehCompra(it)) {
+        var fp = faixaItem(it), gp = gastoDe(it), comprado = compraDe(it) === "ok";
+        if (fp) { origA += fp[0]; origB += fp[1]; }
+        if (gp !== null) { gastoTot += gp; comGasto++; }
+        if (comprado || gp !== null) {
+          if (fp) { prevA += fp[0]; prevB += fp[1]; }
+        } else if (fp) { faltaA += fp[0]; faltaB += fp[1]; }
+      }
+
+      var li = main.querySelector('[data-id="' + it.id + '"]');
+      if (!li) return;
+      li.querySelector(".marca").checked = done;
+      li.classList.toggle("feito", done);
+      li.querySelector(".etiquetas").innerHTML = etiquetasHTML(it);
+      var bt = li.querySelector(".compra");
+      if (bt) {
+        var c2 = compraDe(it);
+        var rot = c2 === "falta" ? "Falta comprar" : c2 === "ok" ? "Comprado" : "Marcar compra";
+        bt.dataset.c = c2;
+        bt.innerHTML = '<span class="ponto"></span>' + (c2 ? '<span class="rot">' + rot + "</span>" : "");
+        bt.setAttribute("aria-label", rot + ": " + it.nome);
+        bt.title = rot;
+      }
+      li.hidden = !passa(it);
+    });
+
+    document.querySelectorAll("[data-qt]").forEach(function (e) {
+      e.textContent = abaFez[e.dataset.qt] + "/" + abaTot[e.dataset.qt];
+    });
+    pintarPasse(abaFez.garantir + abaFez.levar + abaFez.comprar, ITENS.length);
+    pintarFoco();
+    pintarAlerta();
+
+    var visiveis = 0;
+    main.querySelectorAll("section.grupo").forEach(function (sec) {
+      var lis = sec.querySelectorAll(".item"), vis = 0, d = 0;
+      lis.forEach(function (li) { if (!li.hidden) { vis++; if (li.classList.contains("feito")) d++; } });
+      sec.querySelector(".cont").textContent = d + "/" + vis;
+      sec.hidden = vis === 0;
+      visiveis += vis;
+      selar(sec, sec.id.slice(2), gTot, gFez);
+    });
+    document.getElementById("vazio").hidden = visiveis > 0;
+
+    if (aba === "levar") {
+      ["mochila", "b10", "b23"].forEach(function (k) {
+        var c = painel.querySelector('[data-card="' + k + '"]');
+        if (!c) return;
+        var pct = tot[k] ? fez[k] / tot[k] : 0;
+        var excedeu = MALAS[k].limite > 0 && kg[k] > MALAS[k].limite;
+        c.classList.toggle("excedeu", excedeu);
+        c.querySelector("[data-g]").textContent = kg[k].toFixed(1).replace(".", ",") + " kg";
+        c.querySelector("[data-p]").textContent = excedeu
+          ? "passou " + (kg[k] - MALAS[k].limite).toFixed(1).replace(".", ",") + " kg do limite"
+          : fez[k] + " de " + tot[k];
+        c.querySelector("[data-b]").style.width = (pct * 100) + "%";
+        c.classList.toggle("cheio", tot[k] > 0 && pct >= 1);
+        encher(c, pct);
+      });
+    } else {
+      var c = painel.querySelector('[data-card="' + aba + '"]');
+      if (c) {
+        if (aba === "comprar") {
+          var t2 = falta + ok, pct2 = t2 ? ok / t2 : 0;
+          c.querySelector("[data-g]").textContent = ok + " de " + t2 + " comprados";
+          c.querySelector("[data-p]").textContent = gastoTot > 0
+            ? fmtE(gastoTot) + " gastos até agora"
+            : (faltaB ? "≈ " + fmtFaixa(faltaA, faltaB) + " previstos" : falta + " itens por comprar");
+          c.querySelector("[data-b]").style.width = (pct2 * 100) + "%";
+          c.classList.toggle("cheio", t2 > 0 && pct2 >= 1);
+          encher(c, pct2);
+          pintarOrcamento({
+            gasto: gastoTot, comGasto: comGasto,
+            faltaA: faltaA, faltaB: faltaB,
+            prevA: prevA, prevB: prevB,
+            origA: origA, origB: origB
+          });
+        } else if (aba === "volta") {
+          var lim = MALAS.b23.limite;
+          var pctV = clamp(kgVolta / lim, 0, 1);
+          c.classList.toggle("excedeu", kgVolta > lim);
+          c.querySelector("[data-g]").textContent = numBR(Math.round(kgVolta * 10) / 10) + " kg de volta";
+          c.querySelector("[data-p]").textContent = cVolta.volta + " voltam · " + cVolta.fica + " ficam · " + cVolta.dar + " pra dar" +
+            (kgVolta > lim ? " — passou " + numBR(Math.round((kgVolta - lim) * 10) / 10) + " kg da mala de 23" : "");
+          c.querySelector("[data-b]").style.width = (pctV * 100) + "%";
+          c.classList.toggle("cheio", abaTot.volta > 0 && abaFez.volta >= abaTot.volta && kgVolta <= lim);
+          encher(c, pctV);
+        } else {
+          var pct3 = abaTot.garantir ? abaFez.garantir / abaTot.garantir : 0;
+          c.querySelector("[data-g]").textContent = abaFez.garantir + " de " + abaTot.garantir + " garantidos";
+          c.querySelector("[data-p]").textContent = abaFez.garantir === abaTot.garantir
+            ? "tudo na mão" : (abaTot.garantir - abaFez.garantir) + " ainda por resolver";
+          c.querySelector("[data-b]").style.width = (pct3 * 100) + "%";
+          c.classList.toggle("cheio", pct3 >= 1);
+          encher(c, pct3);
+        }
+      }
+    }
+  }
+
+  function pintarPasse(feitos, total) {
+    var pct = total ? feitos / total : 0;
+    var n = document.getElementById("prontNum");
+    if (n) rolar(n, feitos, function (v) {
+      return Math.round(v) + " de " + total + " · " + Math.round(v / (total || 1) * 100) + "%";
+    });
+    var b = document.getElementById("prontBar");
+    if (b) b.style.width = (pct * 100) + "%";
+    var v = document.getElementById("voo");
+    if (v) v.style.left = (7 + pct * 86) + "%";
+  }
+
+  function pintarFoco() {
+    var el = document.getElementById("foco");
+    if (!el) return;
+
+    var pend = URGENTES
+      .map(function (id) { return POR_ID[id]; })
+      .filter(function (it) { return it && !estado.feito[it.id]; });
+
+    if (!pend.length) {
+      pend = ITENS.filter(function (it) { return abaDe(it) === "garantir" && !estado.feito[it.id]; });
+    }
+
+    if (!pend.length) {
+      el.innerHTML = '<p class="rotulo">Foco agora</p>' +
+        '<p class="ok"><b>Tudo o que tinha prazo já está resolvido.</b> Daqui pra frente é arrumar mala e comprar o que falta.</p>';
+      return;
+    }
+
+    var lis = pend.slice(0, 3).map(function (it, i) {
+      return '<li><button type="button" data-foco="' + it.id + '">' +
+        '<span class="ord">' + (i + 1) + "</span>" +
+        "<span>" + esc(it.nome) + "</span>" +
+        '<span class="seta" aria-hidden="true">→</span>' +
+      "</button></li>";
+    }).join("");
+
+    el.innerHTML = '<p class="rotulo">Foco agora</p>' +
+      "<ol>" + lis + "</ol>" +
+      '<p class="ok">São os itens com prazo real — visto, apostila, seguro. O resto pode esperar; estes não.</p>';
+  }
+
+  function pintarOrcamento(d) {
+    var o = document.getElementById("orcamento");
+    if (!o) return;
+    function set(k, v) { var e = o.querySelector('[data-o="' + k + '"]'); if (e) e.textContent = v; }
+
+    var elG = o.querySelector('[data-o="gasto"]');
+    if (elG) rolar(elG, d.gasto, function (v) { return fmtE(v); });
+    set("prev", d.prevB ? "≈ " + fmtFaixa(d.prevA, d.prevB) : "—");
+    set("falta", d.faltaB ? "≈ " + fmtFaixa(d.faltaA, d.faltaB) : "—");
+    set("proj", "≈ " + fmtFaixa(d.gasto + d.faltaA, d.gasto + d.faltaB));
+
+    /* a mesma conta em reais, logo abaixo, quando há cotação */
+    if (taxa()) {
+      var linhas = o.querySelectorAll(".orc-linha");
+      var emR = [
+        fmtR(d.gasto * taxa()),
+        d.prevB ? faixaBRL(d.prevA, d.prevB) : "",
+        d.faltaB ? faixaBRL(d.faltaA, d.faltaB) : "",
+        faixaBRL(d.gasto + d.faltaA, d.gasto + d.faltaB)
+      ];
+      linhas.forEach(function (ln, i) {
+        var r = ln.querySelector(".rot2");
+        var base = r.dataset.base || (r.dataset.base = r.textContent);
+        r.innerHTML = esc(base) + (emR[i] ? '<br><span style="opacity:.75">' + esc(emR[i]) + "</span>" : "");
+      });
+    }
+
+    pintarSemana();
+
+    var teto = Math.max(d.gasto + d.faltaB, d.origB, 1);
+    o.querySelector('[data-o="barra-g"]').style.width = clamp(d.gasto / teto, 0, 1) * 100 + "%";
+    o.querySelector('[data-o="barra-f"]').style.width = clamp(d.faltaB / teto, 0, 1) * 100 + "%";
+
+    var v = o.querySelector('[data-o="veredito"]');
+    v.className = "veredito";
+    if (!d.comGasto) {
+      v.innerHTML = "Marque um item como comprado e anote quanto pagou — a partir daí este quadro compara <b>o real com o previsto</b>.";
+      return;
+    }
+    if (!d.prevB) {
+      v.innerHTML = "Você já gastou <b>" + fmtE(d.gasto) + "</b>. Sem estimativa nesses itens, não dá pra comparar ainda.";
+      return;
+    }
+    if (d.gasto < d.prevA) {
+      v.classList.add("abaixo");
+      v.innerHTML = "Nos itens já resolvidos você gastou <b>" + fmtE(d.gasto) + "</b>, contra " + fmtFaixa(d.prevA, d.prevB) +
+        " previstos — <b>" + fmtE(d.prevA - d.gasto) + " abaixo</b> do piso da estimativa.";
+    } else if (d.gasto > d.prevB) {
+      v.classList.add("acima");
+      v.innerHTML = "Nos itens já resolvidos você gastou <b>" + fmtE(d.gasto) + "</b>, contra " + fmtFaixa(d.prevA, d.prevB) +
+        " previstos — <b>" + fmtE(d.gasto - d.prevB) + " acima</b> do teto da estimativa.";
+    } else {
+      v.classList.add("dentro");
+      v.innerHTML = "Nos itens já resolvidos você gastou <b>" + fmtE(d.gasto) + "</b>, contra " + fmtFaixa(d.prevA, d.prevB) +
+        " previstos — <b>dentro do previsto</b>.";
+    }
+  }
+
+  /* =========================================================
+     selo de grupo completo
+     ========================================================= */
+
+  function selar(sec, gid, gTot, gFez) {
+    var total = gTot[gid] || 0, feitos = gFez[gid] || 0;
+    var completo = total > 0 && feitos >= total;
+    sec.classList.toggle("completo", completo);
+    var ja = sec.querySelector(".selo");
+    if (!completo) {
+      if (ja) ja.remove();
+      if (estado.selo[gid]) { delete estado.selo[gid]; salvar(); }
+      return;
+    }
+    if (!estado.selo[gid]) { estado.selo[gid] = hojeISO(); salvar(); }
+    if (ja) return;
+    var d = deISO(estado.selo[gid]) || new Date();
+    var s = document.createElement("div");
+    s.className = "selo";
+    s.setAttribute("aria-hidden", "true");
+    s.innerHTML = "<span>completo</span><b>" + d.getDate() + " " + MESES[d.getMonth()] + "</b>" +
+      "<span>" + String(d.getFullYear()).slice(2) + "</span>";
+    sec.appendChild(s);
+  }
+
+  /* =========================================================
+     alerta dos últimos dias
+     ========================================================= */
+
+  function pintarAlerta() {
+    var el = document.getElementById("alerta");
+    if (!el) return;
+    var d = diasAteVoo();
+
+    var urg = URGENTES.map(function (id) { return POR_ID[id]; })
+      .filter(function (it) { return it && !estado.feito[it.id]; });
+
+    if (d < 0 || d > 7 || !urg.length) { el.hidden = true; return; }
+
+    var linhas = urg.slice(0, 5).map(function (it) {
+      return '<li><button class="et anotar" type="button" data-foco2="' + it.id + '">' + esc(it.nome) + "</button></li>";
+    }).join("");
+
+    var titulo = d === 0
+      ? "É hoje. E ainda tem coisa com prazo aberta."
+      : "Faltam " + d + (d === 1 ? " dia" : " dias") + " e ainda tem prazo em aberto.";
+
+    el.className = "glass alerta pisca-forte";
+    el.innerHTML = '<p class="rotulo">Atenção</p><h3>' + titulo + "</h3>" +
+      "<ul>" + linhas + "</ul>" +
+      "<p>Nesta altura nada disto resolve sozinho: cada um depende de terceiros — cartório, consulado, seguradora, banco. Toque pra ir direto ao item.</p>";
+    el.hidden = false;
+  }
+
+  /* =========================================================
+     gasto por semana
+     ========================================================= */
+
+  function segundaDe(d) {
+    var x = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    var dia = (x.getDay() + 6) % 7;
+    x.setDate(x.getDate() - dia);
+    return x;
+  }
+
+  function pintarSemana() {
+    var el = document.getElementById("semana");
+    if (!el) return;
+    var pares = [];
+    Object.keys(estado.gasto).forEach(function (id) {
+      var q = estado.quando[id];
+      var v = estado.gasto[id];
+      if (!q || typeof v !== "number") return;
+      var d = deISO(q);
+      if (d) pares.push([segundaDe(d).getTime(), v]);
+    });
+    if (!pares.length) { el.innerHTML = ""; return; }
+
+    var min = Math.min.apply(null, pares.map(function (p) { return p[0]; }));
+    var max = Math.max.apply(null, pares.map(function (p) { return p[0]; }));
+    var semanas = [], t = min;
+    while (t <= max) { semanas.push({ t: t, v: 0 }); t += 7 * 86400000; }
+    if (semanas.length > 16) semanas = semanas.slice(semanas.length - 16);
+
+    if (semanas.length < 2) {
+      el.innerHTML = '<p class="rotulo">Por semana</p>' +
+        '<p class="veredito">Assim que houver compra em outra semana, aparece aqui a curva de gasto — é ela que mostra o pico do mês de instalação.</p>';
+      return;
+    }
+
+    pares.forEach(function (p) {
+      for (var i = 0; i < semanas.length; i++) if (semanas[i].t === p[0]) { semanas[i].v += p[1]; return; }
+    });
+
+    var teto = Math.max.apply(null, semanas.map(function (s) { return s.v; })) || 1;
+    var pico = semanas.filter(function (s) { return s.v === teto; })[0];
+
+    var barras = semanas.map(function (s) {
+      return '<i class="' + (s.v === teto ? "pico" : "") + '" style="height:' +
+        Math.max(2, Math.round(s.v / teto * 100)) + '%" title="' + fmtE(s.v) + '"></i>';
+    }).join("");
+
+    var eixo = semanas.map(function (s, i) {
+      var d = new Date(s.t);
+      var mostra = semanas.length <= 8 || i % 2 === 0;
+      return "<span>" + (mostra ? d.getDate() + "/" + (d.getMonth() + 1) : "") + "</span>";
+    }).join("");
+
+    var dp = new Date(pico.t);
+    el.innerHTML = '<p class="rotulo">Gasto por semana</p>' +
+      '<div class="semana-barras">' + barras + "</div>" +
+      '<div class="semana-eixo">' + eixo + "</div>" +
+      '<p class="veredito">Semana mais cara: <b>' + dp.getDate() + " de " + MESES[dp.getMonth()] + "</b>, " +
+      fmtE(teto) + (taxa() ? " · " + fmtR(teto * taxa()) : "") + ".</p>";
+  }
+
+  /* =========================================================
+     números que rolam
+     ========================================================= */
+
+  var semAnim = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+
+  function rolar(el, para, fmt) {
+    if (!el) return;
+    var de = parseFloat(el.dataset.rol);
+    if (!isFinite(de)) de = 0;
+    el.dataset.rol = para;
+    if (semAnim || de === para) { el.textContent = fmt(para); return; }
+    var t0 = performance.now(), dur = 620;
+    (function passo(t) {
+      var k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = fmt(de + (para - de) * e);
+      if (k < 1) requestAnimationFrame(passo);
+    })(performance.now());
+  }
+
+  /* =========================================================
+     hora de Gaia
+     ========================================================= */
+
+  function horaLisboa() {
+    try {
+      return new Intl.DateTimeFormat("pt-PT", { timeZone: "Europe/Lisbon", hour: "2-digit", minute: "2-digit" }).format(new Date());
+    } catch (e) { return null; }
+  }
+  function horaNumLisboa() {
+    try {
+      return parseInt(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Lisbon", hour: "2-digit", hour12: false }).format(new Date()), 10);
+    } catch (e) { return (new Date().getHours() + 4) % 24; }
+  }
+  /* 0 = madrugada, 1 = meio-dia — é o que move as manchas do fundo */
+  function fatorLuz() {
+    var h = horaNumLisboa();
+    return clamp((1 - Math.cos((h - 3) / 24 * 2 * Math.PI)) / 2, 0, 1);
+  }
+  function pintarHora() {
+    var el = document.getElementById("horaGaia");
+    if (!el) return;
+    var h = horaLisboa();
+    if (!h) { el.hidden = true; return; }
+    var n = horaNumLisboa();
+    var frase = n < 6 ? "a cidade ainda dorme"
+      : n < 9 ? "o Douro está amanhecendo"
+      : n < 13 ? "manhã do outro lado"
+      : n < 19 ? "tarde por lá"
+      : n < 22 ? "anoitecendo no rio"
+      : "noite fechada em Gaia";
+    el.innerHTML = "Em Gaia agora são <b>" + h + "</b> · " + frase;
+  }
+
+  function trocarAba(t) {
+    aba = t;
+    filtro = "all";
+    document.querySelectorAll(".aba").forEach(function (b) {
+      b.setAttribute("aria-selected", String(b.dataset.t === t));
+    });
+    montarPainel();
+    montarFiltros();
+    pintar();
+    addOnde.value = t === "garantir" ? "doc" : t === "comprar" ? "la" : "b23";
+    ajustarCampos();
+  }
+
+  /* =========================================================
+     interação
+     ========================================================= */
+
+  main.addEventListener("change", function (e) {
+    if (!e.target.classList.contains("marca")) return;
+    var id = e.target.closest(".item").dataset.id;
+    if (e.target.checked) estado.feito[id] = 1; else delete estado.feito[id];
+    pintar(); salvar();
+  });
+
+  function abrirEditor(li, foco) {
+    var ed = li.querySelector(".editor");
+    if (!ed) return;
+    var it = POR_ID[li.dataset.id];
+    var f = faixaItem(it), g = gastoDe(it);
+    ed.querySelector("[data-est]").value = precoTxt(it) === "—" ? "" : precoTxt(it);
+    ed.querySelector("[data-pago]").value = g !== null ? numBR(g) : "";
+    var dq = ed.querySelector("[data-quando]");
+    if (dq) dq.value = estado.quando[it.id] || hojeISO();
+
+    var conv = ed.querySelector("[data-conv]");
+    var pg = ed.querySelector("[data-pago]");
+    function mostrarConv() {
+      if (!conv) return;
+      var n = lerNumero(pg.value), t = taxa();
+      conv.textContent = (n !== null && t) ? fmtE(n) + " são " + fmtR(n * t) + " pela cotação de hoje." : "";
+    }
+    if (conv && !pg.dataset.liga) { pg.dataset.liga = "1"; pg.addEventListener("input", mostrarConv); }
+    mostrarConv();
+
+    ed.hidden = false;
+    var alvo = ed.querySelector(foco === "pago" ? "[data-pago]" : "[data-est]");
+    if (alvo) { alvo.focus(); alvo.select(); }
+  }
+
+  function lerNumero(v) {
+    var t = String(v || "").replace(/[€\s]/g, "").replace(/\.(?=\d{3}\b)/g, "").replace(",", ".");
+    if (!t) return null;
+    var n = parseFloat(t);
+    return isFinite(n) && n >= 0 ? n : null;
+  }
+
+  function abrirAnot(li) {
+    var it = POR_ID[li.dataset.id];
+    if (!it) return;
+    var ja = li.querySelector(".anot");
+    if (ja) { ja.remove(); return; }
+    var d = document.createElement("div");
+    d.className = "anot";
+    d.innerHTML =
+      '<textarea maxlength="600" placeholder="Número do processo, marca que você viu, nome do senhorio, medida…"></textarea>' +
+      '<div class="acoes">' +
+        '<button class="mini forte" type="button" data-anotsalva>Salvar</button>' +
+        '<button class="mini" type="button" data-anotfecha>Fechar</button>' +
+        '<button class="mini" type="button" data-anotlimpa>Apagar</button>' +
+      "</div>" +
+      '<p class="dica">Fica salvo neste aparelho e vai junto no backup.</p>';
+    li.querySelector(".corpo").appendChild(d);
+    var t = d.querySelector("textarea");
+    t.value = estado.nota[it.id] || "";
+    t.focus();
+  }
+
+  function abrirPeso(li) {
+    var it = POR_ID[li.dataset.id];
+    if (!it) return;
+    var ja = li.querySelector(".anot.peso");
+    if (ja) { ja.remove(); return; }
+    var d = document.createElement("div");
+    d.className = "anot peso";
+    d.innerHTML =
+      '<label style="font-size:11px">Peso na volta, em kg' +
+      '<input type="text" inputmode="decimal" data-kg placeholder="0,8" ' +
+      'style="min-height:38px;width:100%;padding:8px 11px;border-radius:12px;border:1px solid var(--linha);' +
+      'background:var(--glass);color:var(--text);font-family:var(--sans);font-size:15px;margin-top:5px"></label>' +
+      '<div class="acoes">' +
+        '<button class="mini forte" type="button" data-kgsalva>Salvar</button>' +
+        '<button class="mini" type="button" data-anotfecha>Fechar</button>' +
+      "</div>" +
+      '<p class="dica">O que você comprou aí não tem peso na lista. Pese com a balança de mala e anote aqui.</p>';
+    li.querySelector(".corpo").appendChild(d);
+    var i = d.querySelector("[data-kg]");
+    i.value = pesoVolta(it) ? numBR(pesoVolta(it)) : "";
+    i.focus();
+  }
+
+  main.addEventListener("click", function (e) {
+    var an = e.target.closest("[data-anot]");
+    if (an) { abrirAnot(an.closest(".item")); return; }
+
+    var asv = e.target.closest("[data-anotsalva]");
+    if (asv) {
+      var liA = asv.closest(".item"), cx = liA.querySelector(".anot textarea");
+      var txt = String(cx.value || "").trim();
+      if (txt) estado.nota[liA.dataset.id] = txt; else delete estado.nota[liA.dataset.id];
+      liA.querySelector(".anot").remove();
+      pintar(); salvar();
+      return;
+    }
+    var afc = e.target.closest("[data-anotfecha]");
+    if (afc) { afc.closest(".anot").remove(); return; }
+    var alp = e.target.closest("[data-anotlimpa]");
+    if (alp) {
+      var liB = alp.closest(".item");
+      delete estado.nota[liB.dataset.id];
+      liB.querySelector(".anot").remove();
+      pintar(); salvar();
+      return;
+    }
+
+    var pz = e.target.closest("[data-pesar]");
+    if (pz) { abrirPeso(pz.closest(".item")); return; }
+    var ksv = e.target.closest("[data-kgsalva]");
+    if (ksv) {
+      var liK = ksv.closest(".item"), vk = lerNumero(liK.querySelector("[data-kg]").value);
+      if (vk !== null) estado.kgv[liK.dataset.id] = vk; else delete estado.kgv[liK.dataset.id];
+      liK.querySelector(".anot.peso").remove();
+      pintar(); salvar();
+      return;
+    }
+
+    var vb = e.target.closest("[data-volta]");
+    if (vb) {
+      var idv = vb.dataset.vid, atualV = estado.volta[idv] || "";
+      if (atualV === vb.dataset.volta) delete estado.volta[idv];
+      else estado.volta[idv] = vb.dataset.volta;
+      pintar(); salvar();
+      return;
+    }
+
+    var ab = e.target.closest("[data-preco]");
+    if (ab) { abrirEditor(ab.closest(".item"), ab.classList.contains("gasto") ? "pago" : "est"); return; }
+
+    var sv = e.target.closest("[data-salvar]");
+    if (sv) {
+      var li = sv.closest(".item"), ed = li.querySelector(".editor");
+      var it2 = POR_ID[li.dataset.id];
+      var est = ed.querySelector("[data-est]").value.trim();
+      var pago = lerNumero(ed.querySelector("[data-pago]").value);
+      if (est) {
+        if (/^[\d.,]+$/.test(est)) est = "€" + est;
+        estado.preco[it2.id] = est;
+      } else delete estado.preco[it2.id];
+      var qd = ed.querySelector("[data-quando]");
+      if (pago !== null) {
+        estado.gasto[it2.id] = pago;
+        estado.quando[it2.id] = (qd && qd.value) || estado.quando[it2.id] || hojeISO();
+        if (compraDe(it2) !== "ok") estado.compra[it2.id] = "ok";
+      } else {
+        delete estado.gasto[it2.id];
+        delete estado.quando[it2.id];
+      }
+      ed.hidden = true;
+      pintar(); salvar();
+      return;
+    }
+
+    var cc = e.target.closest("[data-cancelar]");
+    if (cc) { cc.closest(".editor").hidden = true; return; }
+
+    var lp = e.target.closest("[data-limpar]");
+    if (lp) {
+      var li2 = lp.closest(".item");
+      delete estado.gasto[li2.dataset.id];
+      delete estado.quando[li2.dataset.id];
+      lp.closest(".editor").hidden = true;
+      pintar(); salvar();
+      return;
+    }
+
+    var bt = e.target.closest(".compra");
+    if (bt) {
+      var liC = bt.closest(".item");
+      var it = POR_ID[bt.dataset.compra];
+      var atual = compraDe(it);
+      var prox = atual === "" ? "falta" : atual === "falta" ? "ok" : "";
+      estado.compra[it.id] = prox === "" ? "off" : prox;
+      if (prox !== "ok") { delete estado.gasto[it.id]; delete estado.quando[it.id]; }
+      pintar(); salvar();
+      if (prox === "ok" && gastoDe(it) === null && liC) abrirEditor(liC, "pago");
+      return;
+    }
+    var del = e.target.closest(".apagar");
+    if (del) {
+      var id = del.dataset.apagar;
+      estado.novos = estado.novos.filter(function (n) { return n.id !== id; });
+      delete estado.feito[id]; delete estado.compra[id];
+      delete estado.preco[id]; delete estado.gasto[id];
+      delete estado.quando[id]; delete estado.nota[id];
+      delete estado.volta[id]; delete estado.kgv[id];
+      construir(); pintar(); salvar();
+    }
+  });
+
+  function irPara(it) {
+    if (!it) return;
+    trocarAba(abaDe(it));
+    var li = main.querySelector('[data-id="' + it.id + '"]');
+    if (!li) return;
+    li.scrollIntoView({ behavior: semAnim ? "auto" : "smooth", block: "center" });
+    li.classList.remove("pisca");
+    void li.offsetWidth;
+    li.classList.add("pisca");
+    setTimeout(function () { li.classList.remove("pisca"); }, 2000);
+  }
+
+  document.getElementById("alerta").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-foco2]");
+    if (b) irPara(POR_ID[b.dataset.foco2]);
+  });
+
+  document.getElementById("foco").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-foco]");
+    if (!b) return;
+    irPara(POR_ID[b.dataset.foco]);
+  });
+
+  document.getElementById("abas").addEventListener("click", function (e) {
+    var b = e.target.closest(".aba");
+    if (b) trocarAba(b.dataset.t);
+  });
+
+  elFiltros.addEventListener("click", function (e) {
+    var b = e.target.closest("button");
+    if (!b) return;
+    filtro = b.dataset.f;
+    this.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+    pintar();
+  });
+
+  /* adicionar */
+  var formAdd = document.getElementById("formAdd"),
+      abreAdd = document.getElementById("abreAdd"),
+      addOnde = document.getElementById("addOnde"),
+      campoPeso = document.getElementById("campoPeso"),
+      campoPreco = document.getElementById("campoPreco");
+
+  function ajustarCampos() {
+    campoPeso.hidden = addOnde.value === "la";
+    campoPreco.hidden = false;
+  }
+  addOnde.addEventListener("change", ajustarCampos);
+
+  abreAdd.addEventListener("click", function () {
+    var v = formAdd.hidden;
+    formAdd.hidden = !v;
+    abreAdd.setAttribute("aria-expanded", String(v));
+    if (v) document.getElementById("addNome").focus();
+  });
+  document.getElementById("cancelaAdd").addEventListener("click", function () {
+    formAdd.hidden = true;
+    abreAdd.setAttribute("aria-expanded", "false");
+    formAdd.reset();
+    ajustarCampos();
+  });
+
+  formAdd.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var nome = document.getElementById("addNome").value.trim();
+    if (!nome) { document.getElementById("addNome").focus(); return; }
+    var onde = addOnde.value;
+    var peso = parseFloat(String(document.getElementById("addPeso").value).replace(",", ".")) || 0;
+    estado.seq = (estado.seq || 0) + 1;
+    estado.novos.push({
+      id: "meu-" + estado.seq,
+      nome: nome,
+      nota: document.getElementById("addNota").value.trim(),
+      mala: onde === "doc" ? "mochila" : onde,
+      doc: onde === "doc",
+      kg: onde === "la" ? 0 : peso,
+      preco: (function (v) { return v && /^[\d.,]+$/.test(v) ? "€" + v : v; })(document.getElementById("addPreco").value.trim())
+    });
+    formAdd.reset();
+    formAdd.hidden = true;
+    abreAdd.setAttribute("aria-expanded", "false");
+    construir();
+    trocarAba(onde === "doc" ? "garantir" : onde === "la" ? "comprar" : "levar");
+    salvar();
+    var g = document.getElementById("g-meus");
+    if (g) g.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+
+  /* =========================================================
+     modo arrumação — tela cheia, só o que falta, letra grande
+     ========================================================= */
+
+  var caixaArruma = document.getElementById("arruma"),
+      listaArruma = document.getElementById("arrumaLista"),
+      abasArruma = document.getElementById("arrumaAbas"),
+      contArruma = document.getElementById("arrumaCont");
+
+  var arrumaAba = "levar";
+  var ARRUMA_ABAS = [
+    ["levar", "Arrumar na mala"],
+    ["garantir", "Garantir"],
+    ["comprar", "Comprar lá"]
+  ];
+
+  function pintarArruma() {
+    abasArruma.innerHTML = ARRUMA_ABAS.map(function (a) {
+      var n = ITENS.filter(function (it) { return abaDe(it) === a[0] && !estado.feito[it.id]; }).length;
+      return '<button type="button" data-aa="' + a[0] + '" aria-pressed="' + (a[0] === arrumaAba) + '">' +
+        a[1] + " · " + n + "</button>";
+    }).join("");
+
+    var pend = ITENS.filter(function (it) { return abaDe(it) === arrumaAba && !estado.feito[it.id]; });
+
+    rolar(contArruma, pend.length, function (v) {
+      return Math.round(v) + (Math.round(v) === 1 ? " item" : " itens");
+    });
+
+    if (!pend.length) {
+      listaArruma.innerHTML = '<p class="arruma-fim"><b>Nada pendente aqui.</b>' +
+        (arrumaAba === "levar" ? "Pode fechar a mala." : "Pode respirar.") + "</p>";
+      return;
+    }
+
+    listaArruma.innerHTML = pend.map(function (it) {
+      var onde = it.mala === "la" ? "Portugal" : (it.doc ? "Documento" : MALAS[it.mala].curto);
+      return '<button type="button" data-ar="' + it.id + '">' +
+        '<span class="quad"></span><span>' + esc(it.nome) + "</span>" +
+        '<span class="onde">' + onde + "</span></button>";
+    }).join("");
+  }
+
+  function abrirArruma() {
+    caixaArruma.hidden = false;
+    document.documentElement.style.overflow = "hidden";
+    arrumaAba = (aba === "volta") ? "levar" : aba;
+    pintarArruma();
+  }
+  function fecharArruma() {
+    caixaArruma.hidden = true;
+    document.documentElement.style.overflow = "";
+    pintar();
+  }
+
+  document.getElementById("abreArruma").addEventListener("click", abrirArruma);
+  document.getElementById("fechaArruma").addEventListener("click", fecharArruma);
+
+  abasArruma.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-aa]");
+    if (!b) return;
+    arrumaAba = b.dataset.aa;
+    pintarArruma();
+  });
+
+  listaArruma.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-ar]");
+    if (!b) return;
+    var id = b.dataset.ar;
+    estado.feito[id] = 1;
+    salvar();
+    b.classList.add("indo");
+    setTimeout(pintarArruma, semAnim ? 0 : 300);
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !caixaArruma.hidden) fecharArruma();
+  });
+
+  /* modo de volta: automático em fevereiro, manual a qualquer momento */
+  var ABRE_VOLTA = new Date(2027, 1, 1);
+
+  function mostrarVolta() {
+    return !!estado.prefs.volta || (new Date() >= ABRE_VOLTA);
+  }
+  function sincronizarVolta() {
+    var b = document.getElementById("abaVolta");
+    var lig = document.getElementById("ligaVolta");
+    if (lig) lig.checked = !!estado.prefs.volta;
+    if (!b) return;
+    var ver = mostrarVolta();
+    b.hidden = !ver;
+    if (!ver && aba === "volta") trocarAba("levar");
+  }
+
+  document.getElementById("ligaVolta").addEventListener("change", function () {
+    estado.prefs.volta = this.checked;
+    sincronizarVolta();
+    salvar();
+  });
+
+  /* aparência */
+  var painelPrefs = document.getElementById("prefs"), abre = document.getElementById("abrePrefs");
+  abre.addEventListener("click", function () {
+    var v = painelPrefs.hidden;
+    painelPrefs.hidden = !v;
+    abre.setAttribute("aria-expanded", String(v));
+  });
+
+  var elFundo = document.getElementById("corFundo"),
+      elManual = document.getElementById("manual"),
+      elManuais = document.getElementById("manuais"),
+      elTexto = document.getElementById("corTexto"),
+      elAccent = document.getElementById("corAccent"),
+      elPos = document.getElementById("corPos");
+
+  var temasHost = document.getElementById("temas");
+  TEMAS.forEach(function (t) {
+    var b = document.createElement("button");
+    b.className = "tema"; b.type = "button";
+    b.dataset.bg = t.bg; b.dataset.nome = t.nome;
+    b.setAttribute("aria-pressed", "false");
+    var sw = document.createElement("span");
+    sw.className = "amostra";
+    var a = amostraDe(t.bg);
+    sw.style.setProperty("--a1", a[0]);
+    sw.style.setProperty("--a2", a[1]);
+    sw.style.setProperty("--a3", a[2]);
+    b.appendChild(sw);
+    b.appendChild(document.createTextNode(t.nome));
+    temasHost.appendChild(b);
+  });
+
+  temasHost.addEventListener("click", function (e) {
+    var b = e.target.closest(".tema");
+    if (!b) return;
+    estado.prefs.bg = b.dataset.bg;
+    estado.prefs.tema = b.dataset.nome;
+    sincronizar(); aplicarCores(estado.prefs); salvar();
+  });
+
+  elFundo.addEventListener("input", function () {
+    estado.prefs.bg = elFundo.value; estado.prefs.tema = "";
+    marcarTema(); aplicarCores(estado.prefs);
+  });
+  elFundo.addEventListener("change", salvar);
+
+  elManual.addEventListener("change", function () {
+    estado.prefs.manual = elManual.checked;
+    elManuais.hidden = !elManual.checked;
+    if (elManual.checked) {
+      var d = aplicarCores({ bg: estado.prefs.bg, manual: false });
+      if (!estado.prefs.text) estado.prefs.text = getComputedStyle(root).getPropertyValue("--text").trim();
+      if (!estado.prefs.accent) estado.prefs.accent = d.accent;
+      if (!estado.prefs.pos) estado.prefs.pos = d.positivo;
+      elTexto.value = normHex(estado.prefs.text);
+      elAccent.value = normHex(estado.prefs.accent);
+      elPos.value = normHex(estado.prefs.pos);
+    }
+    aplicarCores(estado.prefs); salvar();
+  });
+
+  [[elTexto, "text"], [elAccent, "accent"], [elPos, "pos"]].forEach(function (par) {
+    par[0].addEventListener("input", function () {
+      estado.prefs[par[1]] = par[0].value;
+      aplicarCores(estado.prefs);
+    });
+    par[0].addEventListener("change", salvar);
+  });
+
+  function normHex(v) {
+    v = String(v || "").trim();
+    return /^#[0-9a-f]{6}$/i.test(v) ? v : "#000000";
+  }
+  function marcarTema() {
+    temasHost.querySelectorAll(".tema").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.bg.toLowerCase() === String(estado.prefs.bg).toLowerCase()));
+    });
+  }
+  function sincronizar() {
+    elFundo.value = normHex(estado.prefs.bg);
+    elManual.checked = !!estado.prefs.manual;
+    elManuais.hidden = !estado.prefs.manual;
+    if (estado.prefs.text) elTexto.value = normHex(estado.prefs.text);
+    if (estado.prefs.accent) elAccent.value = normHex(estado.prefs.accent);
+    if (estado.prefs.pos) elPos.value = normHex(estado.prefs.pos);
+    marcarTema();
+  }
+
+  /* backup */
+  var salvarArquivo = null, avisoBackup = document.getElementById("avisoBackup");
+
+  document.getElementById("exportar").addEventListener("click", function () {
+    estado.ts = Date.now();
+    var txt = JSON.stringify(estado, null, 2);
+    if (salvarArquivo) {
+      salvarArquivo.save({ filename: "mala-porto-backup.json", data: txt })
+        .then(function () { avisoBackup.textContent = "Backup salvo."; })
+        .catch(function (err) {
+          if (err && err.code === "declined") { avisoBackup.textContent = "Backup cancelado."; return; }
+          copiar(txt);
+        });
+    } else copiar(txt);
+  });
+
+  function copiar(txt) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(function () {
+        avisoBackup.textContent = "Não deu pra baixar aqui — o backup foi copiado para a área de transferência.";
+      }).catch(function () { avisoBackup.textContent = "Não foi possível exportar neste dispositivo."; });
+    } else avisoBackup.textContent = "Não foi possível exportar neste dispositivo.";
+  }
+
+  document.getElementById("importar").addEventListener("click", function () {
+    var inp = document.createElement("input");
+    inp.type = "file"; inp.accept = "application/json,.json";
+    inp.addEventListener("change", function () {
+      var f = inp.files && inp.files[0];
+      if (!f) return;
+      var fr = new FileReader();
+      fr.onload = function () {
+        try {
+          var obj = JSON.parse(String(fr.result));
+          if (!obj || typeof obj !== "object") throw 0;
+          adotar(obj); salvar();
+          avisoBackup.textContent = "Backup restaurado.";
+        } catch (e) { avisoBackup.textContent = "Esse arquivo não parece um backup válido."; }
+      };
+      fr.readAsText(f);
+    });
+    inp.click();
+  });
+
+  /* =========================================================
+     persistência
+     ========================================================= */
+
+  var remoto = null, tSalvar = null;
+
+  function lerLocal() {
+    try {
+      var r = localStorage.getItem(CHAVE);
+      if (r) return JSON.parse(r);
+      var velho = localStorage.getItem(CHAVE_ANTIGA);
+      return velho ? JSON.parse(velho) : null;
+    } catch (e) { return null; }
+  }
+
+  function salvar() {
+    estado.ts = Date.now();
+    try { localStorage.setItem(CHAVE, JSON.stringify(estado)); } catch (e) {}
+    clearTimeout(tSalvar);
+    if (!remoto) return;
+    tSalvar = setTimeout(function () {
+      remoto.publish({ "estado.json": JSON.stringify(estado) }).catch(function (err) {
+        if (err && err.code === "conflict") return;
+        remoto = null;
+      });
+    }, 2500);
+  }
+
+  function adotar(obj) {
+    if (obj) {
+      estado.feito = obj.feito || {};
+      estado.compra = obj.compra || {};
+      estado.preco = obj.preco || {};
+      estado.gasto = obj.gasto || {};
+      estado.quando = obj.quando || {};
+      estado.nota = obj.nota || {};
+      estado.volta = obj.volta || {};
+      estado.kgv = obj.kgv || {};
+      estado.selo = obj.selo || {};
+      if (obj.cambio && obj.cambio.taxa) estado.cambio = Object.assign(estado.cambio, obj.cambio);
+      estado.novos = Array.isArray(obj.novos) ? obj.novos : [];
+      estado.seq = obj.seq || estado.novos.length;
+      if (obj.prefs) estado.prefs = Object.assign(estado.prefs, obj.prefs);
+      estado.ts = obj.ts || 0;
+    }
+    sincronizar();
+    aplicarCores(estado.prefs);
+    construir();
+    sincronizarVolta();
+    trocarAba(mostrarVolta() || aba !== "volta" ? aba : "levar");
+    pintarCambio();
+  }
+
+  construir();
+  sincronizarVolta();
+  trocarAba("garantir");
+  sincronizar();
+  aplicarCores(estado.prefs);
+
+  (function iniciar() {
+    var local = lerLocal();
+    var api = window.claude;
+    var p = (api && typeof api.use === "function")
+      ? Promise.all([
+          api.use("artifact").catch(function () { return null; }),
+          api.use("downloads").catch(function () { return null; })
+        ])
+      : Promise.resolve([null, null]);
+
+    p.then(function (r) {
+      remoto = r[0] || null;
+      salvarArquivo = r[1] || null;
+      if (!remoto) { adotar(local); return; }
+      return fetch("estado.json", { cache: "no-store" })
+        .then(function (x) { return x.ok ? x.json() : null; })
+        .catch(function () { return null; })
+        .then(function (rem) {
+          var melhor = local;
+          if (rem && (!local || (rem.ts || 0) > (local.ts || 0))) melhor = rem;
+          adotar(melhor);
+        });
+    }).catch(function () { adotar(local); });
+  })();
+
+  /* =========================================================
+     partida
+     ========================================================= */
+
+  /* tocar na cotação força uma busca nova */
+  document.getElementById("cambio").addEventListener("click", function () {
+    document.getElementById("cambioFonte").textContent = "buscando…";
+    document.getElementById("cambioFonte").className = "cambio-fonte";
+    buscarCambio(true);
+  });
+
+  (function contagem() {
+    var d = diasAteVoo();
+    var el = document.getElementById("dias");
+    rolar(el, d > 0 ? d : 0, function (v) { return String(Math.round(v)); });
+    var u = document.querySelector(".contador .u");
+    if (u && d === 1) u.innerHTML = "dia<br>até o voo";
+    if (u && d <= 0) u.innerHTML = "boa<br>viagem";
+  })();
+
+  pintarHora();
+  pintarCambio();
+  buscarCambio(false);
+
+  /* service worker — só quando servido de um site de verdade (GitHub Pages) */
+  if ("serviceWorker" in navigator && /^https?:$/.test(location.protocol)) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("sw.js").catch(function () {});
+    });
+  }
+
+  /* a hora de Gaia e a luz do fundo andam sozinhas */
+  setInterval(function () {
+    pintarHora();
+    aplicarCores(estado.prefs);
+  }, 240000);
+
+  /* voltando ao app depois de horas, tudo se atualiza */
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) return;
+    pintarHora();
+    aplicarCores(estado.prefs);
+    pintarAlerta();
+    buscarCambio(false);
+  });
+})();
+</script>

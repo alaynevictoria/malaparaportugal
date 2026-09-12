@@ -1,11 +1,11 @@
-/* Mala pra Portugal — service worker
-   Guarda a página inteira para ela abrir sem internet (avião, aeroporto, primeiro
-   dia sem SIM português). A cotação do euro nunca é guardada: ela sempre vai à rede,
-   e o app se vira com o último valor salvo quando a rede não responde.
+/* Meu intercâmbio — service worker
+   Guarda a página inteira para ela abrir sem internet (metro, loja sem sinal,
+   viagem). A cotação do euro e a leitura de notas pela API nunca são guardadas:
+   sempre vão à rede, e o app se vira com o último valor salvo quando a rede falha.
 
    Ao publicar uma versão nova do index.html, troque o número em VERSAO. */
 
-var VERSAO = "mala-porto-v5-1";
+var VERSAO = "intercambio-v1";
 
 var CASCA = [
   "./",

@@ -1,7 +1,7 @@
 {
-  "name": "Mala pra Portugal",
-  "short_name": "Portugal",
-  "description": "Checklist de mudança para Vila Nova de Gaia: o que levar, o que garantir e o que comprar em euros.",
+  "name": "Meu intercâmbio",
+  "short_name": "Intercâmbio",
+  "description": "Controle de gastos do intercâmbio em Vila Nova de Gaia: notas fiscais, categorias, euro em reais, relatórios e orçamento.",
   "lang": "pt-BR",
   "dir": "ltr",
   "start_url": "./",
